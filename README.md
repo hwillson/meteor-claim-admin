@@ -4,14 +4,14 @@
 
 Meteor based (with Blaze) claim administration system, made up of the following two core components:
 
-1. Public Claim System
+### 1. Public Claim System
 
 - Provides a CMS based website that can be used to relay claim details to the public.
 - Provides a dynamic multi-step claim form (following a wizard approach) that can be used to capture claimant information and details.
 
 [TODO - Screenshot]
 
-2. Member Only Claim Admin System
+### 2. Member Only Claim Admin System
 
 - Allows admins to review all captured claim information, control claim status, add claim notes, etc.
 - Allows admins to control all public facing CMS based site content.
