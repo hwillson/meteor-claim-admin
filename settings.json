@@ -1,0 +1,17 @@
+{
+  "public": {
+    "maintenaceMode": false
+  },
+  "private": {
+    "initialAdminEmail": "jsmith@somesite.fake",
+    "initialAdminPass": "cQ5-j51-PJa-l8T",
+    "mandrill": {
+      "username": "",
+      "key": ""
+    },
+    "email": {
+      "info": "info@somesite.fake",
+      "claimsubmission": "claimsubmission@somesite.fake"
+    }
+  }
+}

@@ -1,0 +1,40 @@
+<template name="adminWelcome">
+
+  <section class="content-header">
+    <h1>
+      Claim Site
+      <small>ADMIN</small>
+    </h1>
+    <ol class="breadcrumb">
+      <li>
+        <a href="{{pathFor 'adminWelcome'}}">
+          <i class="fa fa-map"></i> Home
+        </a>
+      </li>
+      <li class="active">Welcome</li>
+    </ol>
+  </section>
+
+  <section class="content">
+
+    <div class="box box-default">
+      <div class="box-header with-border">
+        <h3 class="box-title"><i class="fa fa-home"></i> Welcome!</h3>
+      </div>
+      <div class="box-body">
+        {{#if currentUser}}
+          <p>
+            Welcome to the <strong>Claim Admin</strong> system!
+          </p>
+          <p>
+            If you have any questions regarding this system, or need a hand getting started, please contact <a href="mailto:jsmith@somesite.fake">jsmith@somesite.fake</a>.
+          </p>
+        {{else}}
+          Please <a href="#" class="login">login to continue</a>.
+        {{/if}}
+      </div>
+    </div>
+
+  </section>
+
+</template>

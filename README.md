@@ -2,7 +2,7 @@
 
 ## Overview
 
-Meteor based (with Blaze) claim administration system, made up of the following two core components:
+Meteor based (with Blaze) demo claim administration system, made up of the following two core components:
 
 ### 1. Public Claim System
 
@@ -29,6 +29,13 @@ Meteor based (with Blaze) claim administration system, made up of the following 
 1. `git clone https://github.com/hwillson/meteor-claim-admin.git`
 2. `cd meteor-claim-admin; meteor`
 
+## Running
+
+1. `meteor --settings=settings.json`
+2. To get started, access the admin at http://localhost:3000/admin.
+
 ## Configuration
+
+- Default admin user/pass are configured via `./settings.json`, and are loaded the first time the application starts.
 
 - TODO

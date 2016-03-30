@@ -1,0 +1,78 @@
+<template name="adminSidebar">
+  <aside class="main-sidebar">
+    <section class="sidebar">
+
+      <ul class="sidebar-menu">
+        <li class="header">ADMIN</li>
+
+        <li class="{{isActivePath '/admin'}} {{isActiveRoute 'adminWelcome'}}">
+          <a href="{{pathFor 'adminWelcome'}}">
+            <i class="fa fa-home"></i>
+            Welcome
+          </a>
+        </li>
+        {{#if currentUser}}
+          <li class="treeview">
+            <a href="#">
+              <i class="fa fa-archive"></i>
+              <span>Office</span>
+              <i class="fa fa-angle-left pull-right"></i>
+            </a>
+            <ul class="treeview-menu">
+              <li class="{{isActiveRoute 'adminClaims'}}
+                  {{isActiveRoute 'adminClaim'}}">
+                <a href="{{pathFor 'adminClaims'}}">
+                  <i class="fa fa-legal"></i> Claims
+                </a>
+              </li>
+              <li class="{{isActiveRoute 'adminReports'}}">
+                <a href="{{pathFor 'adminReports'}}">
+                  <i class="fa fa-bar-chart"></i> Reports
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="treeview">
+            <a href="#">
+              <i class="fa fa-globe"></i>
+              <span>Website</span>
+              <i class="fa fa-angle-left pull-right"></i>
+            </a>
+            <ul class="treeview-menu">
+              <li class="{{isActiveRoute 'adminPages'}}">
+                <a href="{{pathFor 'adminPages'}}">
+                  <i class="fa fa-file"></i> Pages
+                </a>
+              </li>
+              <li class="{{isActiveRoute 'adminDocuments'}}">
+                <a href="{{pathFor 'adminDocuments'}}">
+                  <i class="fa fa-cloud-download"></i> Documents
+                </a>
+              </li>
+            </ul>
+          </li>
+
+          {{#if isInRole "admin"}}
+            <li class="treeview">
+              <a href="#">
+                <i class="fa fa-gears"></i>
+                <span>System</span>
+                <i class="fa fa-angle-left pull-right"></i>
+              </a>
+              <ul class="treeview-menu">
+                <li class="{{isActiveRoute 'adminUsers'}}">
+                  <a href="{{pathFor 'adminUsers'}}">
+                    <i class="fa fa-users"></i> Users
+                  </a>
+                </li>
+              </ul>
+            </li>
+          {{/if}}
+
+        {{/if}}
+
+      </ul>
+
+    </section>
+  </aside>
+</template>

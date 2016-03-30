@@ -1,0 +1,32 @@
+<template name="adminUsersLayout">
+  {{#AdminLTE skin="blue"}}
+    <div class="wrapper">
+      {{> adminHeader}}
+      {{> adminSidebar}}
+      <div class="content-wrapper">
+
+        <section class="content-header">
+          <h1>User Management</h1>
+          <ol class="breadcrumb">
+            <li>
+              <a href="{{pathFor 'adminWelcome'}}">
+                <i class="fa fa-map"></i> Home
+              </a>
+            </li>
+            <li class="active">Users</li>
+          </ol>
+        </section>
+
+        <section class="content">
+          <div class="box box-default">
+            <div class="box-body">
+              {{> Template.dynamic template=main}}
+            </div>
+          </div>
+        </section>
+
+      </div>
+      {{> adminFooter}}
+    </div>
+  {{/AdminLTE}}
+</template>

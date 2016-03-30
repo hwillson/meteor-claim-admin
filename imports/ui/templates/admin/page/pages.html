@@ -1,0 +1,71 @@
+<template name="adminPages">
+  {{#if hasAccess}}
+
+    <section class="content-header">
+      <h1>Website Pages</h1>
+      <ol class="breadcrumb">
+        <li>
+          <a href="{{pathFor 'adminWelcome'}}">
+            <i class="fa fa-map"></i> Home
+          </a>
+        </li>
+        <li>Website</li>
+        <li class="active">Pages</li>
+      </ol>
+    </section>
+
+    <section class="content">
+
+      <div class="text-right">
+        <button class="btn btn-default btn-new-page"
+            data-toggle="modal" data-target="#new-page-modal">
+          <i class="fa fa-plus"></i> New Page
+        </button>
+      </div>
+
+      <div class="box box-default">
+        <div class="box-body">
+          {{#if Template.subscriptionsReady}}
+            {{#if pageCount}}
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Title</th>
+                    <th>Language</th>
+                    <th>Slug</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {{#each pages}}
+                    <tr>
+                      <td>{{title}}</td>
+                      <td>{{language}}</td>
+                      <td>{{slug}}</td>
+                      <td>{{status}}</td>
+                      <td>
+                        <button class="btn btn-sm btn-danger btn-delete">
+                          <i class="fa fa-trash"></i>
+                        </button>
+                        <button class="btn btn-sm btn-default btn-edit">
+                          <i class="fa fa-edit"></i>
+                        </button>
+                      </td>
+                    </tr>
+                  {{/each}}
+                </tbody>
+              </table>
+            {{else}}
+              No website pages exist.
+            {{/if}}
+          {{else}}
+            Loading ...
+          {{/if}}
+        </div>
+      </div>
+
+    </section>
+
+  {{/if}}
+</template>

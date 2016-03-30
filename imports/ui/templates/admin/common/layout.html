@@ -1,0 +1,12 @@
+<template name="adminLayout">
+  {{#AdminLTE skin="blue"}}
+    <div class="wrapper">
+      {{> adminHeader}}
+      {{> adminSidebar}}
+      <div class="content-wrapper">
+        {{> Template.dynamic template=main}}
+      </div>
+      {{> adminFooter}}
+    </div>
+  {{/AdminLTE}}
+</template>
