@@ -1,8 +1,9 @@
 import { Template } from 'meteor/templating';
 import { FlowRouter } from 'meteor/kadira:flow-router';
-import { sweetAlert } from 'meteor/kevohagan:sweetalert';
+import sweetAlert from 'sweetalert';
 
 import pages from '../../../../api/pages/collection.js';
+import { removePage } from '../../../../api/pages/methods.js';
 
 import './pages.html';
 
@@ -42,7 +43,7 @@ Template.adminPages.events({
       showCancelButton: true,
       confirmButtonColor: '#DD6B55',
     }, () => {
-      pages.remove({ _id: pageId });
+      removePage.call({ pageId });
     });
   },
 

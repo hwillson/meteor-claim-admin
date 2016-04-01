@@ -1,5 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import { ValidatedMethod } from 'meteor/mdg:validated-method';
+import { SimpleSchema } from 'meteor/aldeed:simple-schema';
 
 import pageSchema from './schema.js';
 import pages from './collection.js';
@@ -37,4 +38,20 @@ const updatePage = new ValidatedMethod({
   },
 });
 
-export { createPage, updatePage };
+const removePage = new ValidatedMethod({
+  name: 'pages.removePage',
+  validate: new SimpleSchema({
+    pageId: {
+      type: String,
+    },
+  }).validator(),
+  run({ pageId }) {
+    if (this.userId) {
+      pages.remove({ _id: pageId });
+    } else {
+      throwNotAuthorizedException(this.name);
+    }
+  },
+});
+
+export { createPage, updatePage, removePage };

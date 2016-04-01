@@ -42,7 +42,7 @@ mquandalle:stylus
 browser-policy
 mfactory:admin-lte
 arillo:flow-router-helpers
-kevohagan:sweetalert
+# kevohagan:sweetalert
 mpowaga:autoform-summernote
 dburles:collection-helpers
 aldeed:template-extension
