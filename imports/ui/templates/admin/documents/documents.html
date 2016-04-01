@@ -1,0 +1,87 @@
+<template name="adminDocuments">
+
+  <section class="content-header">
+    <h1>Website Documents</h1>
+    <ol class="breadcrumb">
+      <li>
+        <a href="{{pathFor 'adminWelcome'}}">
+          <i class="fa fa-map"></i> Home
+        </a>
+      </li>
+      <li>Website</li>
+      <li class="active">Documents</li>
+    </ol>
+  </section>
+
+  <section class="content">
+
+    <div class="box box-default">
+      <div class="box-body">
+        {{#if Template.subscriptionsReady}}
+          {{#if docsExist}}
+            <table class="claim-docs-table table table-striped">
+              <thead>
+                <tr>
+                  <th>File</th>
+                  <th>Language</th>
+                  <th>Description</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                {{#each siteDocuments}}
+                  <tr>
+                    <td class="doc-name">
+                      <i class="fa fa-file-o"></i>
+                      {{#with FS.GetFile 'site_files' fileId}}
+                        <a href="{{url}}" target="_blank">{{name}}</a>
+                      {{/with}}
+                    </td>
+                    <td>{{language}}</td>
+                    <td class="doc-description">{{description}}</td>
+                    <td class="doc-action">
+                      <button type="button"
+                          class="btn btn-danger btn-xs btn-delete">
+                        Delete
+                      </button>
+                    </td>
+                  </tr>
+                {{/each}}
+              </tbody>
+            </table>
+          {{else}}
+            <p>
+              No site documents have been added. Add a new document below.
+            </p>
+          {{/if}}
+        {{else}}
+          <i class="fa fa-refresh fa-spin"></i> Loading ...
+        {{/if}}
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-5">
+        <div class="box box-default">
+          <div class="box-header with-border">
+            <h3 class="box-title">Add a New Document</h3>
+          </div>
+          <div class="box-body">
+            {{#autoForm id="siteDocumentsForm"
+                collection=collection type="method"
+                meteormethod="siteDocuments.createDocument"}}
+              {{> afQuickField name="fileId"}}
+              {{> afQuickField name="language"}}
+              {{> afQuickField name="description"}}
+              <button type="submit" class="btn btn-primary btn-save pull-right">
+                Upload
+              </button>
+            {{/autoForm}}
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+</template>
