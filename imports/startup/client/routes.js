@@ -7,6 +7,9 @@ import { BlazeLayout } from 'meteor/kadira:blaze-layout';
 
 import languageLookup from '../../utility/lookups/language_lookup.js';
 
+import '../../ui/templates/site/common/layout.js';
+import '../../ui/templates/site/page/page.js';
+
 import '../../ui/templates/admin/common/layout.js';
 import '../../ui/templates/admin/welcome/welcome.js';
 import '../../ui/templates/admin/user/layout.js';

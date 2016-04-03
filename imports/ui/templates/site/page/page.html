@@ -1,0 +1,10 @@
+<template name="sitePage">
+  <div class="page page-{{slug}}">
+    {{#with page}}
+      <h1 class="page-title">{{title}}</h1>
+      <div class="page-content">
+        {{{content}}}
+      </div>
+    {{/with}}
+  </div>
+</template>

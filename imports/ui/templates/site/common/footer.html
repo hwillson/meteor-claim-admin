@@ -1,0 +1,71 @@
+<template name="siteFooter">
+  <section class="widget page_in_widget-3 widget_page_in_widget">
+
+    <aside id="footer-widgets">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+            <h3 class="footer-widget-title">{{i18n 'footer.sitemap'}}</h3>
+            <ul class="list-unstyled three_cols">
+              <li><a href="/">{{i18n 'nav.home'}}</a></li>
+              <li><a href="#">{{i18n 'nav.claim'}}</a></li>
+              <li>
+                <a href="{{i18n 'nav.helpLink'}}">{{i18n 'nav.help'}}</a>
+              </li>
+              <li>
+                <a href="{{i18n 'nav.contactUsLink'}}">{{i18n 'nav.contactUs'}}</a>
+              </li>
+              <li>
+                <a href="{{i18n 'nav.documentsLink'}}">{{i18n 'nav.documents'}}</a>
+              </li>
+              <li>
+                <a href="{{i18n 'nav.faqLink'}}">{{i18n 'nav.faq'}}</a>
+              </li>
+              <li>
+                <a href="{{i18n 'nav.privacyLink'}}">{{i18n 'nav.privacy'}}</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-4">
+            <div class="footer-widget">
+              <h3 class="footer-widget-title">{{i18n "footer.help"}}</h3>
+              <p>
+                {{i18n "footer.email"}}
+                <a href="mailto:{{i18n "footer.contactEmail"}}">
+                  {{i18n "footer.contactEmail"}}
+                </a><br />
+                {{i18n "footer.phone"}} {{i18n "footer.phoneNumber"}}
+              </p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="footer-widget">
+              <h3>{{i18n "footer.address"}}</h3>
+              <address>
+                <strong>{{i18n "footer.company"}}</strong><br />
+                {{i18n "footer.careOf"}}<br />
+                {{i18n "footer.street1"}}<br />
+                {{i18n "footer.city"}}, {{i18n "footer.state"}}<br />
+                {{i18n "footer.zip"}}<br />
+              </address>
+            </div>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <footer id="footer">
+      <div class="container">
+        <div class="row">
+          <p>
+            {{i18n "footer.notice"}}
+          </p>
+          <p>
+            {{i18n "footer.copyright"}}
+          </p>
+        </div>
+      </div>
+    </footer>
+
+  </section>
+</template>

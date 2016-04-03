@@ -1,0 +1,25 @@
+<template name="siteSidebar">
+  <aside class="sidebar col-md-4" role="complementary">
+    <section>
+      <div class="panel panel-primary">
+        <section class="widget page_in_widget-2 widget_page_in_widget">
+          <div class="panel-heading">
+            <i class="fa fa-exclamation-circle"></i>
+            {{i18n "sidebar.title"}}
+          </div>
+          <div class="panel-body">
+            {{#if Template.subscriptionsReady}}
+              {{#if sidebarExists}}
+                {{{sidebar.content}}}
+              {{else}}
+                <p>No sidebar content.</p>
+              {{/if}}
+            {{else}}
+              <p>Loading ...</p>
+            {{/if}}
+          </div>
+        </section>
+      </div>
+    </section>
+  </aside>
+</template>

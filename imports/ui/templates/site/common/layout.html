@@ -1,0 +1,14 @@
+<template name="siteLayout">
+  <div class="site">
+    {{> siteHeader}}
+    <div class="wrap container" role="document">
+      <div class="content row">
+        <main class="main col-md-8" role="main">
+          {{> Template.dynamic template=main}}
+        </main>
+        {{> siteSidebar}}
+      </div>
+    </div>
+    {{> siteFooter}}
+  </div>
+</template>

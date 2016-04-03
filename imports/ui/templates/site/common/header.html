@@ -1,0 +1,71 @@
+<template name="siteHeader">
+
+  <header id="header-full-top" class="hidden-xs header-full">
+    <div class="container">
+      <div class="header-full-title">
+        <h1 class="animated fadeInRight">
+          <a href="/">
+            <span>{{i18n "header.titlePrimary"}}</span>
+            {{i18n "header.titleSecondary"}}
+          </a>
+        </h1>
+      </div>
+      <nav class="top-nav">
+        <ul class="language-toggle hidden-sm">
+          <li>
+            <i class="fa fa-language"></i>
+            {{#with languageToggle}}
+              <a href="{{url}}" class="lang-toggle">{{{label}}}</a>
+            {{/with}}
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <nav class="navbar navbar-static-top navbar-default navbar-header-full
+      navbar-dark" role="navigation" id="header">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse"
+            data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <i class="fa fa-bars"></i>
+        </button>
+        <a class="navbar-brand hidden-lg hidden-md hidden-sm" href="/">
+          <span>{{i18n "header.titlePrimary"}}</span>
+          {{i18n "header.titleSecondary"}}
+        </a>
+      </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul id="menu-main-menu" class="nav navbar-nav">
+          <li class="{{isActivePage '/'}} {{isActivePage 'nav.homeLink'}} menu-home">
+            <a href="{{i18n 'nav.homeLink'}}">{{i18n "nav.home"}}</a>
+          </li>
+          <li class="{{isActiveRoute 'siteClaim'}} menu-claim">
+            <a href="/site/claim/intro">
+              <i class="fa fa-sign-in"></i>
+              {{i18n "nav.claim"}}
+            </a>
+          </li>
+          <li class="{{isActivePage 'nav.helpLink'}} menu-need-help">
+            <a href="{{i18n 'nav.helpLink'}}">{{i18n "nav.help"}}</a>
+          </li>
+          <li class="{{isActivePage 'nav.contactUsLink'}} menu-contact-us">
+            <a href="{{i18n 'nav.contactUsLink'}}">{{i18n "nav.contactUs"}}</a>
+          </li>
+          <li class="{{isActivePage 'nav.documentsLink'}} menu-documents">
+            <a href="{{i18n 'nav.documentsLink'}}">{{i18n "nav.documents"}}</a>
+          </li>
+          <li class="{{isActivePage 'nav.faqLink'}} menu-faq">
+            <a href="{{i18n 'nav.faqLink'}}">{{i18n "nav.faq"}}</a>
+          </li>
+          <li class="{{isActivePage 'nav.privacyLink'}} menu-privacy">
+            <a href="{{i18n 'nav.privacyLink'}}">{{i18n "nav.privacy"}}</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+</template>

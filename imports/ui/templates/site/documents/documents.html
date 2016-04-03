@@ -1,0 +1,28 @@
+<template name="siteDocuments">
+
+  <div class="docs">
+    <h1>Documents</h1>
+    <div class="page-content">
+      {{#if Template.subscriptionsReady}}
+        {{#if docsExist}}
+          {{#each siteDocuments}}
+            <p>
+              <i class="fa fa-file-o"></i>
+              {{#with FS.GetFile 'site_files' fileId}}
+                <a href="{{url}}" target="_blank">{{name}}</a>
+              {{/with}}
+              <span>{{description}}</span>
+            </p>
+          {{/each}}
+        {{else}}
+          <p>
+            No site documents have been added.
+          </p>
+        {{/if}}
+      {{else}}
+        <i class="fa fa-refresh fa-spin"></i> Loading ...
+      {{/if}}
+    </div>
+  </div>
+
+</template>
