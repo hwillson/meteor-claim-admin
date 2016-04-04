@@ -1,9 +1,9 @@
 {
   "public": {
-    "maintenaceMode": false
+    "maintenaceMode": false,
+    "initialAdminEmail": "jsmith@somesite.fake"
   },
   "private": {
-    "initialAdminEmail": "jsmith@somesite.fake",
     "initialAdminPass": "cQ5-j51-PJa-l8T",
     "mandrill": {
       "username": "",
