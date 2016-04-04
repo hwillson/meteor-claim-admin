@@ -8,3 +8,13 @@ Template.registerHelper('hasAccess', () => {
   }
   return hasAccess;
 });
+
+Template.registerHelper('adminEmail', () => {
+  const adminEmail = Meteor.settings.public.admin.initialAdminEmail;
+  return adminEmail;
+});
+
+Template.registerHelper('projectName', () => {
+  const projectName = Meteor.settings.public.admin.projectName;
+  return projectName;
+});

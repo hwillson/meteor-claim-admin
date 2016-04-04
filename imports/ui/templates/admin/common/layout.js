@@ -1,4 +1,4 @@
 import './layout.html';
-import './header.html';
+import './header.js';
 import './sidebar.html';
-import './footer.html';
+import './footer.js';

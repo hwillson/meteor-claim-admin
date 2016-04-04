@@ -6,7 +6,7 @@ Meteor.startup(() => {
   const foundEmails = [];
   const users = [
     {
-      email: Meteor.settings.public.initialAdminEmail,
+      email: Meteor.settings.public.admin.initialAdminEmail,
       password: Meteor.settings.private.initialAdminPass,
       roles: ['admin'],
     },

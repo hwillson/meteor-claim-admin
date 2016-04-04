@@ -1,7 +1,12 @@
 {
   "public": {
     "maintenaceMode": false,
-    "initialAdminEmail": "jsmith@somesite.fake"
+    "admin": {
+      "initialAdminEmail": "jsmith@somesite.fake",
+      "projectName": "Claim",
+      "companyName": "Some Company",
+      "companyUrl": "http://somesite.fake"
+    }
   },
   "private": {
     "initialAdminPass": "cQ5-j51-PJa-l8T",
