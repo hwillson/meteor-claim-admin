@@ -8,7 +8,7 @@ import pages from '../../../../api/pages/collection.js';
 import './page.html';
 
 Template.sitePage.onCreated(function sitePageOnCreated() {
-  this.subscribe('allPages');
+  this.subscribe('pages.all');
 });
 
 Template.sitePage.onRendered(function sitePageOnRendered() {
