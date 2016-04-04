@@ -1,0 +1,8 @@
+<template name="siteClaim">
+  <div class="claim">
+    {{> wizard id="claim-wizard" route="siteClaim" steps=steps
+      buttonClasses="btn btn-primary" stepsTemplate="siteClaimSteps"
+      clearOnDestroy=true nextButton=nextButton backButton=backButton
+      confirmButton=confirmButton}}
+  </div>
+</template>
