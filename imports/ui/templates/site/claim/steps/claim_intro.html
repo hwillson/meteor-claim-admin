@@ -1,0 +1,15 @@
+<template name="siteClaimIntro">
+
+  <div class="claim-step-header">
+    <h2>{{i18n "claim.intro.title"}}</h2>
+    {{{i18n "claim.intro.welcome"}}}
+    <p>
+      {{{i18n "claim.intro.continue"}}}
+    </p>
+  </div>
+
+  {{#autoForm id="claim-intro" schema=emptySchema}}
+    {{> wizardButtons}}
+  {{/autoForm}}
+
+</template>

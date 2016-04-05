@@ -1,0 +1,25 @@
+<template name="siteClaimPurchaseInfo">
+  <div class="claim-purchases">
+
+    <div class="claim-step-header">
+      <h2>{{i18n "claim.purchases.title"}}</h2>
+      <p>{{{i18n "claim.purchases.provide"}}}</p>
+      <p>{{{i18n "claim.purchases.mandatory"}}}</p>
+    </div>
+
+    {{#autoForm id="claim-purchases-form" schema=schema doc=this.step.data}}
+
+      <div class="required {{#if afFieldIsInvalid name='didPurchase'}}has-error{{/if}}">
+        <label class="control-label">
+          {{i18n "claim.purchases.didYouPurchase"}}
+        </label>
+        {{> afFieldInput name="didPurchase"}}
+        <span class="help-block">{{afFieldMessage name="didPurchase"}}</span>
+      </div>
+
+      {{> wizardButtons}}
+
+    {{/autoForm}}
+
+  </div>
+</template>

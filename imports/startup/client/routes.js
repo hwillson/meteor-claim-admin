@@ -11,6 +11,7 @@ import '../../ui/templates/site/common/layout.js';
 import '../../ui/templates/site/common/layout_empty.js';
 import '../../ui/templates/site/common/maintenance.html';
 import '../../ui/templates/site/page/page.js';
+import '../../ui/templates/site/claim/claim.js';
 
 import '../../ui/templates/admin/common/layout.js';
 import '../../ui/templates/admin/welcome/welcome.js';
@@ -91,20 +92,22 @@ FlowRouter.route('/site/:slug', {
   },
 });
 
-FlowRouter.route('/site/claim/:step', {
-  name: 'siteClaim',
-  triggersEnter: [toggleSiteClass, setLanguage, maintenaceModeCheck],
-  action() {
-    BlazeLayout.render('siteLayout', { main: 'siteClaim' });
-  },
-});
+if (Meteor.settings.public.claimSubmissionsEnabled) {
+  FlowRouter.route('/site/claim/:step', {
+    name: 'siteClaim',
+    triggersEnter: [toggleSiteClass, setLanguage, maintenaceModeCheck],
+    action() {
+      BlazeLayout.render('siteLayout', { main: 'siteClaim' });
+    },
+  });
 
-FlowRouter.route('/site/receipt/claim', {
-  name: 'siteClaimSubmitted',
-  action() {
-    BlazeLayout.render('siteLayout', { main: 'siteClaimSubmitted' });
-  },
-});
+  FlowRouter.route('/site/receipt/claim', {
+    name: 'siteClaimSubmitted',
+    action() {
+      BlazeLayout.render('siteLayout', { main: 'siteClaimSubmitted' });
+    },
+  });
+}
 
 // Admin
 

@@ -42,14 +42,14 @@
           <li class="{{isActivePage '/'}} {{isActivePage 'nav.homeLink'}} menu-home">
             <a href="{{i18n 'nav.homeLink'}}">{{i18n "nav.home"}}</a>
           </li>
-          {{!--
-          <li class="{{isActiveRoute 'siteClaim'}} menu-claim">
-            <a href="/site/claim/intro">
-              <i class="fa fa-sign-in"></i>
-              {{i18n "nav.claim"}}
-            </a>
-          </li>
-          --}}
+          {{#if claimSubmissionsEnabled}}
+            <li class="{{isActiveRoute 'siteClaim'}} menu-claim">
+              <a href="/site/claim/intro">
+                <i class="fa fa-sign-in"></i>
+                {{i18n "nav.claim"}}
+              </a>
+            </li>
+          {{/if}}
           <li class="{{isActivePage 'nav.helpLink'}} menu-need-help">
             <a href="{{i18n 'nav.helpLink'}}">{{i18n "nav.help"}}</a>
           </li>

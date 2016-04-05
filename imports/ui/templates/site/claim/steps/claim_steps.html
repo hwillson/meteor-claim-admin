@@ -1,0 +1,20 @@
+<template name="siteClaimSteps">
+  <div class="steps hidden-xs">
+    <ol class="nav nav-wizard">
+      {{#each indexedArray wizard.steps}}
+        <li class="{{stepClass id}}">
+          {{#if wizard.route}}
+            <a href="{{pathForStep id}}">
+              {{title}}
+            </a>
+          {{else}}
+            {{title}}
+          {{/if}}
+        </li>
+      {{/each}}
+      <li class="disabled">
+        <a href="#">{{i18n "claim.wizard.progress.finished"}}</a>
+      </li>
+    </ol>
+  </div>
+</template>

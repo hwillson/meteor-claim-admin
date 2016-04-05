@@ -8,7 +8,9 @@
             <h3 class="footer-widget-title">{{i18n 'footer.sitemap'}}</h3>
             <ul class="list-unstyled three_cols">
               <li><a href="/">{{i18n 'nav.home'}}</a></li>
-              {{!-- <li><a href="#">{{i18n 'nav.claim'}}</a></li> --}}
+              {{#if claimSubmissionsEnabled}}
+                <li><a href="#">{{i18n 'nav.claim'}}</a></li>
+              {{/if}}
               <li>
                 <a href="{{i18n 'nav.helpLink'}}">{{i18n 'nav.help'}}</a>
               </li>

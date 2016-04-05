@@ -1,0 +1,99 @@
+<template name="siteClaimReview">
+  <div class="claim-review">
+
+    <div class="claim-step-header">
+      <h2>{{i18n "claim.review.title"}}</h2>
+      <p>{{{i18n "claim.review.description"}}}</p>
+    </div>
+
+    {{#with claimData}}
+
+      <h3>{{i18n "claim.contactInfo.title"}}</h3>
+
+      <table class="table table-striped">
+        <tbody>
+          <tr>
+            <th scope="row">{{i18n "claim.contactInfo.email"}}</th>
+            <td>{{email}}</td>
+          </tr>
+          <tr>
+            <th scope="row">{{i18n "claim.contactInfo.firstName"}}</th>
+            <td>{{firstName}}</td>
+          </tr>
+          <tr>
+            <th scope="row">{{i18n "claim.contactInfo.middleName"}}</th>
+            <td>{{middleName}}</td>
+          </tr>
+          <tr>
+            <th scope="row">{{i18n "claim.contactInfo.lastName"}}</th>
+            <td>{{lastName}}</td>
+          </tr>
+          <tr>
+            <th scope="row">{{i18n "claim.contactInfo.phone"}}</th>
+            <td>{{phone}}</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h4>{{i18n "claim.contactInfo.mailingAddress"}}</h4>
+      <table class="table table-striped">
+        <tbody>
+          <tr>
+            <th scope="row">{{i18n "claim.contactInfo.street1"}}</th>
+            <td>{{address.street1}}</td>
+          </tr>
+          <tr>
+            <th scope="row">{{i18n "claim.contactInfo.street2"}}</th>
+            <td>{{address.street2}}</td>
+          </tr>
+          <tr>
+            <th scope="row">{{i18n "claim.contactInfo.city"}}</th>
+            <td>{{address.city}}</td>
+          </tr>
+          <tr>
+            <th scope="row">{{i18n "claim.contactInfo.province"}}</th>
+            <td>{{address.province}}</td>
+          </tr>
+          <tr>
+            <th scope="row">{{i18n "claim.contactInfo.postalCode"}}</th>
+            <td>{{address.postalCode}}</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h4>{{i18n "claim.purchases.title"}}</h4>
+      <table class="table table-striped">
+        <tbody>
+          <tr>
+            <th scope="row">{{i18n "claim.purchases.didYouPurchase"}}</th>
+            <td>
+              {{#if didPurchase}}
+                Yes
+              {{else}}
+                No
+              {{/if}}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+    {{/with}}
+
+    {{#autoForm id="claim-review-form" schema=schema doc=this.step.data}}
+
+      <h3>{{i18n "claim.review.solDec.title"}}</h3>
+      <div class="well">
+        <p>{{{i18n "claim.review.solDec.declare"}}}</p>
+        <ul>
+          {{> siteClaimReviewDeclaration declaration="declaration1"}}
+          {{> siteClaimReviewDeclaration declaration="declaration2"}}
+          {{> siteClaimReviewDeclaration declaration="declaration3"}}
+        </ul>
+      </div>
+
+      {{> wizardButtons}}
+
+    {{/autoForm}}
+
+  </div>
+</template>

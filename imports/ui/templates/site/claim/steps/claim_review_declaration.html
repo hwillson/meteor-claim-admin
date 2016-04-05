@@ -1,0 +1,10 @@
+<template name="siteClaimReviewDeclaration">
+  <li class="required {{#if afFieldIsInvalid name=declaration}}has-error{{/if}}">
+    {{> afFieldInput name=declaration}}
+    {{#if afFieldIsInvalid name=declaration}}
+      <span class="help-block">
+        {{i18n "claim.review.solDec.agree"}}
+      </span>
+    {{/if}}
+  </li>
+</template>

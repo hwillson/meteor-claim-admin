@@ -18,3 +18,21 @@ Template.registerHelper('projectName', () => {
   const projectName = Meteor.settings.public.admin.projectName;
   return projectName;
 });
+
+Template.registerHelper('claimSubmissionsEnabled', () => {
+  const claimSubmissionsEnabled =
+    Meteor.settings.public.claimSubmissionsEnabled;
+  return claimSubmissionsEnabled;
+});
+
+Template.registerHelper('indexedArray', (context) => {
+  let indexedArray;
+  if (context) {
+    indexedArray = context.map((item, index) => {
+      const newItem = item;
+      newItem._index = index + 1;
+      return newItem;
+    });
+  }
+  return indexedArray;
+});

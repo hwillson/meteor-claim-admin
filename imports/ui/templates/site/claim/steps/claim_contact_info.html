@@ -1,0 +1,111 @@
+<template name="siteClaimContactInfo">
+  <div class="claim-contact-info">
+
+    <div class="claim-step-header">
+      <h2>{{i18n "claim.contactInfo.title"}}</h2>
+      <p>{{i18n "claim.contactInfo.content1"}}</p>
+      <p>{{i18n "claim.contactInfo.content2"}}</p>
+      <p>{{i18n "claim.contactInfo.content3"}}</p>
+    </div>
+
+    {{#autoForm id="claim-contact-info" schema=schema doc=this.step.data}}
+
+      {{> afFieldInput name="language" value=currentLanguage}}
+
+      <div class="required {{#if afFieldIsInvalid name='email'}}has-error{{/if}}">
+        <label class="control-label">{{i18n "claim.contactInfo.email"}}</label>
+        {{> afFieldInput name="email"}}
+        <span class="help-block">{{afFieldMessage name="email"}}</span>
+      </div>
+
+      <div class="required {{#if afFieldIsInvalid name='firstName'}}has-error{{/if}}">
+        <label class="control-label">{{i18n "claim.contactInfo.firstName"}}</label>
+        {{> afFieldInput name="firstName"}}
+        <span class="help-block">{{afFieldMessage name="firstName"}}</span>
+      </div>
+
+      <div class="{{#if afFieldIsInvalid name='middleName'}}has-error{{/if}}">
+        <label class="control-label">{{i18n "claim.contactInfo.middleName"}}</label>
+        {{> afFieldInput name="middleName"}}
+        <span class="help-block">{{afFieldMessage name="middleName"}}</span>
+      </div>
+
+      <div class="required {{#if afFieldIsInvalid name='lastName'}}has-error{{/if}}">
+        <label class="control-label">{{i18n "claim.contactInfo.lastName"}}</label>
+        {{> afFieldInput name="lastName"}}
+        <span class="help-block">{{afFieldMessage name="lastName"}}</span>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6 required
+            {{#if afFieldIsInvalid name='phone'}}has-error{{/if}}">
+          <label class="control-label">
+            {{i18n "claim.contactInfo.phone"}}
+          </label>
+          {{> afFieldInput name="phone"}}
+          <div class="example">{{i18n "claim.contactInfo.phoneExample"}}</div>
+          <span class="help-block">{{afFieldMessage name="phone"}}</span>
+        </div>
+      </div>
+
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">{{i18n "claim.contactInfo.mailingAddress"}}</h3>
+        </div>
+        <div class="panel-body">
+
+          <div class="required
+              {{#if afFieldIsInvalid name='address.street1'}}has-error{{/if}}">
+            <label class="control-label">{{i18n "claim.contactInfo.street1"}}</label>
+            {{> afFieldInput name="address.street1"}}
+            <span class="help-block">
+              {{afFieldMessage name="address.street1"}}
+            </span>
+          </div>
+
+          <div class="{{#if afFieldIsInvalid name='address.street2'}}has-error{{/if}}">
+            <label class="control-label">{{i18n "claim.contactInfo.street2"}}</label>
+            {{> afFieldInput name="address.street2"
+              placeholder=street2Placeholder}}
+            <span class="help-block">
+              {{afFieldMessage name="address.street2"}}
+            </span>
+          </div>
+
+          <div class="required
+              {{#if afFieldIsInvalid name='address.city'}}has-error{{/if}}">
+            <label class="control-label">{{i18n "claim.contactInfo.city"}}</label>
+            {{> afFieldInput name="address.city"}}
+            <span class="help-block">
+              {{afFieldMessage name="address.city"}}
+            </span>
+          </div>
+
+          <div class="row">
+            <div class="col-md-4 required
+                {{#if afFieldIsInvalid name='address.province'}}has-error{{/if}}">
+              <label class="control-label">{{i18n "claim.contactInfo.province"}}</label>
+              {{> afFieldInput name="address.province"}}
+              <span class="help-block">
+                {{afFieldMessage name="address.province"}}
+              </span>
+            </div>
+            <div class="col-md-4 required
+                {{#if afFieldIsInvalid name='address.postalCode'}}has-error{{/if}}">
+              <label class="control-label">{{i18n "claim.contactInfo.postalCode"}}</label>
+              {{> afFieldInput name="address.postalCode"}}
+              <div class="example">{{i18n "claim.contactInfo.postalCodeExample"}}</div>
+              <span class="help-block">
+                {{afFieldMessage name="address.postalCode"}}
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {{> wizardButtons}}
+
+    {{/autoForm}}
+
+  </div>
+</template>
