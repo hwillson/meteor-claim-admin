@@ -64,6 +64,7 @@ ejson@1.0.9
 email@1.0.10
 es5-shim@4.5.8
 fastclick@1.0.9
+force-ssl@1.0.9
 forwarder:autoform-wizard@0.9.0
 geojson-utils@1.0.6
 hot-code-push@1.0.2
