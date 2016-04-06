@@ -1,7 +1,7 @@
 {
   "public": {
     "maintenaceMode": false,
-    "claimSubmissionsEnabled": true,
+    "claimSubmissionsEnabled": false,
     "admin": {
       "initialAdminEmail": "jsmith@somesite.fake",
       "projectName": "Claim",
