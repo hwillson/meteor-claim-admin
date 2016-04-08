@@ -4,7 +4,7 @@ import { $ } from 'meteor/jquery';
 import { i18n } from 'meteor/anti:i18n';
 import { FlowRouter } from 'meteor/kadira:flow-router';
 
-import { createClaim } from '/imports/api/claims/methods.js';
+import createClaim from '/imports/api/claims/methods.js';
 
 import './claim.html';
 import './steps/claim_steps.js';
@@ -46,8 +46,13 @@ Template.siteClaim.helpers({
             '<i class="fa fa-refresh fa-spin"></i>'
           );
           const claimData = wizard.mergedData();
+          // TODO - temp delete statements; will clean via schema properly
+          delete claimData.declaration1;
+          delete claimData.declaration2;
+          delete claimData.declaration3;
           createClaim.call(claimData, (error, newClaim) => {
             if (error) {
+console.log(error);
               this.done();
             } else {
               window.scrollTo(0, 0);

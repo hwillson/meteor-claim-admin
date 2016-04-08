@@ -1,9 +1,9 @@
 import { AuditedCollection } from 'meteor/cwohlman:audited-collections';
 
-import claimSchema from './schema.js';
+import claimSubmissionSchema from '../claim_submission/schema.js';
 
 const claims = new AuditedCollection('claims');
-claims.attachSchema(claimSchema);
+claims.attachSchema(claimSubmissionSchema);
 
 claims.deny({
   insert() { return true; },

@@ -145,6 +145,19 @@ i18n.map('en', {
       },
     },
 
+    finished: {
+      title: 'Claim Submitted',
+      claimId: 'Claim ID:',
+      date: 'Claim Date:',
+      description1: 'Thank you, ',
+      description2: ', for submitting a claim.',
+      description3: 'You have successfully completed the claim submission process.',
+      description4: 'A confirmation email was just sent to the email address '
+        + 'you provided in the early steps of this online filing process. '
+        + 'Attached to this email confirmation message is a summary of your '
+        + 'claim submission, which you should keep for your records.'
+    },
+
   },
 
 });

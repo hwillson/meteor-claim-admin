@@ -1,7 +1,7 @@
 {
   "public": {
     "maintenaceMode": false,
-    "claimSubmissionsEnabled": false,
+    "claimSubmissionsEnabled": true,
     "admin": {
       "initialAdminEmail": "jsmith@somesite.fake",
       "projectName": "Claim",
@@ -11,13 +11,14 @@
   },
   "private": {
     "initialAdminPass": "cQ5-j51-PJa-l8T",
-    "mandrill": {
-      "username": "",
-      "key": ""
-    },
     "email": {
+      "enabled": true,
       "info": "info@somesite.fake",
-      "claimsubmission": "claimsubmission@somesite.fake"
+      "claimsubmission": "claimsubmission@somesite.fake",
+      "mailgun": {
+        "apiKey": "",
+        "domain": ""
+      }
     }
   }
 }

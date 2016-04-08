@@ -1,0 +1,25 @@
+<template name="siteClaimSubmitted">
+  <div class="claim-submitted">
+    <h1>
+      <i class="fa fa-check-circle-o"></i> {{i18n "claim.finished.title"}}
+    </h1>
+    <div class="well">
+      {{i18n "claim.finished.claimId"}}
+      <strong>{{claim.referenceId}}</strong> <br/>
+      {{i18n "claim.finished.date"}}
+      <strong>{{formatDate claim.dateCreated}}</strong>
+    </div>
+    <p>
+      {{i18n "claim.finished.description1"}}
+      <strong>{{claim.firstName}} {{claim.lastName}}</strong>{{i18n
+        "claim.finished.description2"}}
+    </p>
+    <p>
+      <strong>{{i18n "claim.finished.description3"}}</strong>
+    </p>
+    <p>
+      {{i18n "claim.finished.description4"}}
+    </p>
+    <a href="/">{{i18n "nav.home"}} &raquo;</a>
+  </div>
+</template>

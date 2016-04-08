@@ -1,26 +1,25 @@
-import { Meteor } from 'meteor/meteor';
 import { ValidatedMethod } from 'meteor/mdg:validated-method';
+import { incrementCounter } from 'meteor/osv:mongo-counter';
 
-import claimSchema from './schema.js';
+import claimSubmissionSchema from '../claim_submission/schema.js';
 import claims from './collection.js';
-
-const throwNotAuthorizedException = (methodName) => {
-  throw new Meteor.Error(
-    `${methodName}.notAuthorized`,
-    'You are not authorized to perform this action.'
-  );
-};
+import claimStatusLookup from '/imports/utility/lookups/claim_status_lookup.js';
+import emailUtility from '/imports/utility/email.js';
 
 const createClaim = new ValidatedMethod({
   name: 'claims.createClaim',
-  validate: claimSchema.validator(),
+  validate: claimSubmissionSchema.validator(),
   run(doc) {
-    if (this.userId) {
-      claims.insert(doc);
-    } else {
-      throwNotAuthorizedException(this.name);
+    let newClaim;
+    if (!this.isSimulation) {
+      newClaim = doc;
+      newClaim.referenceId = incrementCounter('counters', 'claimId');
+      newClaim.status = claimStatusLookup.codes.received.id;
+      const claimId = claims.insert(newClaim);
+      // Meteor.call('emailClaimReceipt', claimId);
     }
+    return newClaim;
   },
 });
 
-export { createClaim };
+export default createClaim;

@@ -1,6 +1,8 @@
 import { Template } from 'meteor/templating';
 import { Meteor } from 'meteor/meteor';
 
+import dateUtility from '/imports/utility/date.js';
+
 Template.registerHelper('hasAccess', () => {
   let hasAccess = false;
   if (Meteor.userId()) {
@@ -35,4 +37,9 @@ Template.registerHelper('indexedArray', (context) => {
     });
   }
   return indexedArray;
+});
+
+Template.registerHelper('formatDate', (date) => {
+  const formattedDate = dateUtility.formatDate(date);
+  return formattedDate;
 });
