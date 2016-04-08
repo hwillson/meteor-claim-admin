@@ -1,0 +1,67 @@
+<template name="adminClaimContactInfo">
+  <div class="claim-contact-info u-mb-10">
+
+    <div class="row">
+      <div class="col-md-12">
+        <h2>Claim Details</h2>
+      </div>
+    </div>
+
+    {{#if Template.subscriptionsReady}}
+      {{#if claimExists}}
+
+        {{#with claim}}
+
+          <div class="row">
+            <div class="col-md-12">
+              <p>
+                <strong>Claim ID:</strong> {{referenceId}}
+              </p>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6">
+              {{#autoForm id="claim-form" collection=collection doc=this
+                  type=formType}}
+
+                {{> afQuickField name="status"}}
+                {{> afQuickField name="audited"}}
+
+                {{> afQuickField name="email"}}
+                {{> afQuickField name="firstName"}}
+                {{> afQuickField name="middleName"}}
+                {{> afQuickField name="lastName"}}
+
+                {{> afQuickField name="phone"}}
+                {{> afQuickField name="address"}}
+
+                <div class="claim-button-row text-right">
+                  <button type="reset"
+                      class="btn btn-link btn-cancel-contact-info btn-unlocked">
+                    Cancel
+                  </button>
+                  <button type="submit"
+                      class="btn btn-primary btn-save-contact-info btn-unlocked">
+                    Save
+                  </button>
+                  <button type="button"
+                      class="btn btn-primary btn-edit-contact-info btn-locked">
+                    Edit
+                  </button>
+                </div>
+
+              {{/autoForm}}
+            </div>
+          </div>
+        {{/with}}
+
+      {{else}}
+        Claim does not exist.
+      {{/if}}
+    {{else}}
+      Loading ...
+    {{/if}}
+
+  </div>
+</template>

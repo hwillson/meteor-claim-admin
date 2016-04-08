@@ -4,7 +4,7 @@ import { incrementCounter } from 'meteor/osv:mongo-counter';
 import claimSubmissionSchema from '../claim_submission/schema.js';
 import claims from './collection.js';
 import claimStatusLookup from '/imports/utility/lookups/claim_status_lookup.js';
-import emailUtility from '/imports/utility/email.js';
+// import emailUtility from '/imports/utility/email.js';
 
 const createClaim = new ValidatedMethod({
   name: 'claims.createClaim',

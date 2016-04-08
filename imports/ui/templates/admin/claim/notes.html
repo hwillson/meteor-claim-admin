@@ -1,0 +1,51 @@
+<template name="adminClaimNotes">
+  <div class="admin-claim-notes">
+
+    <div class="row">
+      <div class="col-md-12">
+        <h2>Claim Notes</h2>
+        {{#if notesExist}}
+          <table class="claim-notes-table table table-striped">
+            <thead>
+              <tr>
+                <th>Note</th>
+                <th>Created On</th>
+                <th>Created By</th>
+              </tr>
+            </thead>
+            <tbody>
+              {{#each claimNotes}}
+                <tr>
+                  <td class="claim-note-content">{{content}}</td>
+                  <td class="claim-note-date">{{formatDate createdOn}}</td>
+                  <td class="claim-note-creator">{{createdByEmail}}</td>
+                </tr>
+              {{/each}}
+            </tbody>
+          </table>
+        {{else}}
+          <p class="well">
+            There are currently no claim notes on file.
+          </p>
+        {{/if}}
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-5">
+        <div class="new-claim-note clearfix well">
+          {{#autoForm id="claim-notes-form"
+              collection=collection
+              doc=this type="method" meteormethod="claimNoteInsert"}}
+            {{> afQuickField name='content' rows=4}}
+            {{> afQuickField name='claimId' value=currentClaimId}}
+            <button type="submit" class="btn btn-primary btn-save pull-right">
+              Save
+            </button>
+          {{/autoForm}}
+        </div>
+      </div>
+    </div>
+
+  </div>
+</template>

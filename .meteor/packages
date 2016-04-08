@@ -51,7 +51,8 @@ cfs:ui
 cfs:gridfs
 cfs:autoform
 ongoworks:security
-
+aldeed:tabular
 hwillson:manage-users
 force-ssl
 jquery
+meteorhacks:subs-manager

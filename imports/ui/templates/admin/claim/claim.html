@@ -1,0 +1,63 @@
+<template name="adminClaim">
+  <div class="admin-claim">
+
+    <section class="content-header">
+      <h1><i class="fa fa-legal"></i> Claim</h1>
+      <ol class="breadcrumb">
+        <li>
+          <a href="{{pathFor 'adminWelcome'}}">
+            <i class="fa fa-map"></i> Home
+          </a>
+        </li>
+        <li>Office</li>
+        <li><a href="{{pathFor 'adminClaims'}}">Claims</a></li>
+        <li class="active">Claim</li>
+      </ol>
+    </section>
+
+    <section class="content">
+      <div class="box box-default">
+        <div class="box-body">
+
+          <div class="claim-tabs" role="tabpanel">
+            <ul class="nav nav-tabs" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#claim-contact-info" aria-controls="claim-contact-info"
+                    role="tab" data-toggle="tab" class="claim-contact-info-tab">
+                  Details
+                </a>
+              </li>
+              <li role="presentation">
+                <a href="#claim-notes" aria-controls="claim-notes"
+                    role="tab" data-toggle="tab" class="claim-notes-tab">
+                  Notes
+                </a>
+              </li>
+              <li role="presentation">
+                <a href="#claim-audit" aria-controls="claim-audit"
+                    role="tab" data-toggle="tab" class="claim-audit-tab">
+                  Audit
+                </a>
+              </li>
+            </ul>
+            <div class="tab-content">
+              <div role="tabpanel" class="tab-pane active" id="claim-contact-info">
+                {{> adminClaimContactInfo}}
+              </div>
+              <div role="tabpanel" class="tab-pane claim-notes-tab-pane"
+                  id="claim-notes">
+                {{> adminClaimNotes}}
+              </div>
+              <div role="tabpanel" class="tab-pane claim-audit-tab-pane"
+                  id="claim-audit">
+                {{> adminClaimAudit}}
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </div>
+</template>

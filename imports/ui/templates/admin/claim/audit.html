@@ -1,0 +1,36 @@
+<template name="adminClaimAudit">
+  <div class="admin-claim-audit">
+
+    <h2>Audit Log</h2>
+
+    {{#if auditLogsExist}}
+      <div>
+        <table class="claim-audit-table table table-striped">
+          <thead>
+            <tr>
+              <th>Action</th>
+              <th>Changes</th>
+              <th>Date</th>
+              <th>User</th>
+            </tr>
+          </thead>
+          <tbody>
+            {{#each auditLogs}}
+              <tr>
+                <td class="audit-action">{{actionType}}</td>
+                <td class="audit-details">{{showChanges snapshot}}</td>
+                <td class="audit-date">{{formatDateWithTime dateLogged}}</td>
+                <td class="audit-user">{{userEmail userId}}</td>
+              </tr>
+            {{/each}}
+          </tbody>
+        </table>
+      </div>
+    {{else}}
+      <div class="claim-audit-empty well">
+        No claim changes have been made.
+      </div>
+    {{/if}}
+
+  </div>
+</template>
