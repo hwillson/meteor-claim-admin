@@ -36,7 +36,7 @@
         <div class="new-claim-note clearfix well">
           {{#autoForm id="claim-notes-form"
               collection=collection
-              doc=this type="method" meteormethod="claimNoteInsert"}}
+              doc=this type="method" meteormethod="claimNotes.createNote"}}
             {{> afQuickField name='content' rows=4}}
             {{> afQuickField name='claimId' value=currentClaimId}}
             <button type="submit" class="btn btn-primary btn-save pull-right">

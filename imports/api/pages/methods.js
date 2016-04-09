@@ -1,16 +1,9 @@
-import { Meteor } from 'meteor/meteor';
 import { ValidatedMethod } from 'meteor/mdg:validated-method';
 import { SimpleSchema } from 'meteor/aldeed:simple-schema';
 
 import pageSchema from './schema.js';
 import pages from './collection.js';
-
-const throwNotAuthorizedException = (methodName) => {
-  throw new Meteor.Error(
-    `${methodName}.notAuthorized`,
-    'You are not authorized to perform this action.'
-  );
-};
+import throwNotAuthorizedException from '/imports/utility/not_authorized.js';
 
 const createPage = new ValidatedMethod({
   name: 'pages.createPage',

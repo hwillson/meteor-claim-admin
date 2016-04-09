@@ -46,7 +46,7 @@ Template.adminClaimContactInfo.helpers({
   formType() {
     let type = 'disabled';
     if (!Session.get('isClaimFormLocked')) {
-      type = 'update';
+      type = 'method-update';
     }
     return type;
   },

@@ -5,3 +5,6 @@ import '../../api/site_documents/server/publications.js';
 import '../../api/site_files/server/publications.js';
 import '../../api/claims/methods.js';
 import '../../api/claims/server/publications.js';
+import '../../api/claim_notes/methods.js';
+import '../../api/claim_notes/server/publications.js';
+import '../../api/audit_logs/server/publications.js';

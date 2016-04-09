@@ -1,5 +1,6 @@
 import { Template } from 'meteor/templating';
 import { Meteor } from 'meteor/meteor';
+import { Session } from 'meteor/session';
 
 import dateUtility from '/imports/utility/date.js';
 
@@ -42,4 +43,14 @@ Template.registerHelper('indexedArray', (context) => {
 Template.registerHelper('formatDate', (date) => {
   const formattedDate = dateUtility.formatDate(date);
   return formattedDate;
+});
+
+Template.registerHelper('formatDateWithTime', (date) => {
+  const formattedDate = dateUtility.formatDateWithTime(date);
+  return formattedDate;
+});
+
+Template.registerHelper('currentClaimId', () => {
+  const currentClaimId = Session.get('currentClaimId');
+  return currentClaimId;
 });
