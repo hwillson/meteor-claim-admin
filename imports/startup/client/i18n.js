@@ -155,7 +155,7 @@ i18n.map('en', {
       description4: 'A confirmation email was just sent to the email address '
         + 'you provided in the early steps of this online filing process. '
         + 'Attached to this email confirmation message is a summary of your '
-        + 'claim submission, which you should keep for your records.'
+        + 'claim submission, which you should keep for your records.',
     },
 
   },
@@ -211,6 +211,116 @@ i18n.map('fr', {
 
   sidebar: {
     title: 'Attention',
+  },
+
+  claim: {
+
+    wizard: {
+      back: 'Précédent',
+      next: 'Prochain',
+      confirm: 'Soumettre',
+      progress: {
+        intro: 'Bienvenue',
+        contactInfo: 'Coordonnées',
+        purchases: 'Achats',
+        review: 'Réviser',
+        finished: 'Fini',
+        step: 'Étape',
+      },
+    },
+
+    intro: {
+      title: 'Bienvenue',
+      welcome: '<p>Bienvenue!</p>',
+      continue: 'Pour continuer cliquez le bouton Prochain ci-dessous.',
+    },
+
+    contactInfo: {
+      title: 'Coordonnées',
+      content1: 'Veuillez s’il vous plait fournir vos coordonnées.',
+      content2: 'Les champs marqués d\'une étoile (*) sont obligatoires et '
+        + 'doivent être complétés afin de soumettre une réclamation.',
+      content3: 'L\'adresse courriel fournie sera uniquement utilisée pour '
+        + 'vous envoyer un courriel de confirmation de votre réclamation, ou '
+        + 'pour communiquer avec vous en ce qui concerne votre réclamation.',
+      email: 'Courriel',
+      emailRequired: 'Le courriel est obligatoire',
+      emailInvalid: 'L\'adresse courriel doit être une adresse valide',
+      firstName: 'Prénom',
+      firstNameRequired: 'Le prénom est obligatoire',
+      middleName: 'Deuxième prénom',
+      lastName: 'Nom de famille',
+      lastNameRequired: 'Le nom de famille est obligatoire',
+      phone: 'Téléphone (pendant les heures ouvrables)',
+      phoneExample: '(exemple 111-222-3333)',
+      phoneRequired: 'Le numéro de téléphone et code régionale est obligatoire',
+      phoneLength: 'Numéro de téléphone doit être comprise entre 10 et 12 caractères',
+      phoneInvalid: 'Numéro de téléphone doit être au format 111-222-3333',
+      mailingAddress: 'Adresse postale',
+      street1: 'Adresse 1',
+      street1Required: 'L\'adresse postale est obligatoire',
+      street2: 'Adresse 2',
+      street2Placeholder: 'appartement, unité, suite, boîte postale, etc.',
+      city: 'Ville',
+      cityRequired: 'La ville est obligatoire',
+      province: 'Province',
+      provinceRequired: 'La province est obligatoire',
+      postalCode: 'Code postal',
+      postalCodeExample: '(exemple A1A 1A1)',
+      postalCodeRequired: 'Le code postal est obligatoire',
+      postalCodeInvalid: 'Le code postal doit suivre le format A1A 1A1',
+    },
+
+    purchases: {
+      title: 'Achats',
+      provide: '',
+      mandatory: 'Les champs marqués d’une étoile '
+        + '<span class="asterisk">*</span> sont obligatoires et doivent '
+        + 'être complétés afin de soumettre une réclamation.',
+      didYouPurchase: 'Avez-vous acheté le produit X entre le jour du mois, '
+        + 'année et mois jour, année?',
+      validation: {
+        didPurchase: 'Répondre à la question ci-dessus pour continuer.',
+      },
+    },
+
+    review: {
+      title: 'Détails de votre réclamation',
+      description: 'Veuillez réviser les détails de votre réclamation '
+        + 'ci-dessous. Si vous voulez changer les détails fournis, '
+        + 'cliquez sur le bouton Précédent. Lorsque vous êtes prêt à '
+        + 'soumettre votre réclamation, cliquez sur le bouton Soumettre.',
+      solDec: {
+        title: 'Déclarations solennelles',
+        declare: 'Je déclare solennellement que '
+          + '<strong>(toutes les déclarations doivent être cochées '
+          + 'afin de continuer)</strong> :',
+        agree: 'Vous devez accepter et vérifier le ci-dessus pour continuer.',
+        declaration1: 'Je déclare ou j’affirme, sous peine de poursuite pour '
+          + 'fausse déclaration, que les renseignements dans la présente '
+          + 'réclamation sont vrais et corrects au meilleur de mes '
+          + 'connaissances;',
+        declaration2: 'J’ai acheté les produits applicables faisant '
+          + 'l\'objet de la réclamation ci‑dessus avant le année mois, jour;',
+        declaration3: 'Je comprends que mon formulaire de réclamation peut '
+          + 'faire l\'objet d\'une vérification et d\'un examen par le '
+          + 'tribunal.',
+      },
+    },
+
+    finished: {
+      title: 'Votre réclamation est soumise',
+      claimId: 'Numéro de réclamation :',
+      date: 'Date de la réclamation :',
+      description1: 'Nous vous remercions,',
+      description2: ', pour soumettre une réclamation.',
+      description3: 'Vous avez dûment complété le processus de réclamation.',
+      description4: 'Un courriel de confirmation a été envoyé à l\'adresse '
+        + 'fournie lors des premières étapes du processus de réclamation en '
+        + 'ligne. Un sommaire de votre réclamation est joint à ce courriel '
+        + 'et nous vous recommandons de le sauvegarder dans vos dossiers.',
+    },
+
   },
 
 });

@@ -8,3 +8,4 @@ import '../../api/claims/server/publications.js';
 import '../../api/claim_notes/methods.js';
 import '../../api/claim_notes/server/publications.js';
 import '../../api/audit_logs/server/publications.js';
+import '../../api/export_files/server/publications.js';

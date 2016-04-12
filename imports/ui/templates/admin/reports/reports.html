@@ -1,0 +1,31 @@
+<template name="adminReports">
+  <div class="admin-reports">
+
+    <section class="content-header">
+      <h1><i class="fa fa-bar-chart"></i> Reports</h1>
+      <ol class="breadcrumb">
+        <li>
+          <a href="{{pathFor 'adminWelcome'}}">
+            <i class="fa fa-map"></i> Home
+          </a>
+        </li>
+        <li>Office</li>
+        <li class="active">Reports</li>
+      </ol>
+    </section>
+
+    <section class="content">
+      <div class="box box-default">
+        <div class="box-body">
+          CSV export of all claims:
+          {{#with allClaimsCsv}}
+            {{#with FS.GetFile 'export_files' _id}}
+              <a href="{{url}}" target="_blank">{{name}}</a>
+            {{/with}}
+          {{/with}}
+        </div>
+      </div>
+    </section>
+
+  </div>
+</template>

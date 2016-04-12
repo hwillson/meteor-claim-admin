@@ -1,5 +1,4 @@
-/* eslint-disable no-undef */
-
+import { FS } from 'meteor/cfs:base-package';
 import { Security } from 'meteor/ongoworks:security';
 import 'meteor/cfs:gridfs';
 

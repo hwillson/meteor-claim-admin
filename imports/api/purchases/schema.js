@@ -5,6 +5,7 @@ import { i18n } from 'meteor/anti:i18n';
 const purchaseSchema = new SimpleSchema({
   didPurchase: {
     type: Boolean,
+    label: 'Did Purchase?',
     autoform: {
       afFieldInput: {
         type: 'boolean-radios',

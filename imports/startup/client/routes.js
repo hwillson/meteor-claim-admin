@@ -22,6 +22,7 @@ import '../../ui/templates/admin/page/edit_page.js';
 import '../../ui/templates/admin/documents/documents.js';
 import '../../ui/templates/admin/claim/claims.js';
 import '../../ui/templates/admin/claim/claim.js';
+import '../../ui/templates/admin/reports/reports.js';
 
 const toggleSiteClass = function toggleSiteClass() {
   Meteor.defer(() => {
