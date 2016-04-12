@@ -2,7 +2,6 @@ import { Tabular } from 'meteor/aldeed:tabular';
 
 import claims from '/imports/api/claims/collection.js';
 import dateUtility from '/imports/utility/date.js';
-import { SubsManager } from 'meteor/meteorhacks:subs-manager';
 import claimStatusLookup from '/imports/utility/lookups/claim_status_lookup.js';
 
 const claimsTableConfig = new Tabular.Table({
@@ -31,7 +30,6 @@ const claimsTableConfig = new Tabular.Table({
     },
   ],
   order: [[7, 'desc']],
-  sub: new SubsManager(),
 });
 
 export default claimsTableConfig;

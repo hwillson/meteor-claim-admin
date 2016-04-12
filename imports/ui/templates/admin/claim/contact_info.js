@@ -25,10 +25,6 @@ Template.adminClaimContactInfo.onCreated(
   }
 );
 
-Template.adminClaimContactInfo.onRendered(() => {
-  lockForm();
-});
-
 Template.adminClaimContactInfo.helpers({
 
   collection() {
