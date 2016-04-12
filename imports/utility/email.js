@@ -89,7 +89,12 @@ const emailUtility = (() => {
       if (claim) {
         i18n.setLanguage(claim.language);
         const doc = new PDFDocument({ size: 'A4', margin: 50 });
-        const prefix = `${process.env.PWD}/public`;
+        let prefix;
+        if (process.env.NODE_ENV === 'development') {
+          prefix = `${process.env.PWD}/public`;
+        } else {
+          prefix = '/app/bundle/programs/web.browser/app';
+        }
         doc.registerFont('Cardo', `${prefix}/fonts/Cardo104s.ttf`);
         const lineGap = 12;
 
