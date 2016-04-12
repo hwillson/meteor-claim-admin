@@ -16,7 +16,6 @@ const exportClaims = (() => {
 
     allClaimsCsv() {
       const fileNamePrefix = 'all_claims';
-      let count = 0;
       const records = claims.find({}, { timeout: false }).map((claim) => {
         const record = {
           'Claim ID': claim.referenceId,
@@ -34,14 +33,6 @@ const exportClaims = (() => {
           'Postal Code': claim.address.postalCode,
           'Did Purchase': claim.didPurchase,
         };
-
-        if ((count % 100) === 0) {
-          console.log(
-            `Export CSV (${fileNamePrefix}); finished ${count} records.`
-          );
-        }
-        count++;
-
         return record;
       });
 
