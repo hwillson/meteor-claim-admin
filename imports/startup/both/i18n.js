@@ -160,6 +160,28 @@ i18n.map('en', {
 
   },
 
+  email: {
+    submitted: {
+      title: 'Claim Submitted',
+      claimDetails: 'Claim Details',
+      claimId: 'Claim ID:',
+      claimDate: 'Claim Date:',
+      pdfReceipt: 'claim_receipt.pdf',
+      thankYou: 'Thank you {$1} for submitting a claim.',
+      step1: '1. Claim Submitted',
+      confirm: 'This email is to confirm that you have successfully '
+        + 'completed the claim submission process. A PDF summary of your '
+        + 'claim submission is attached to this email.',
+      step2: '2. Claim Not Yet Approved',
+      notYetApproved: 'Your claim is not yet approved.',
+      step3: '3. Next Steps',
+      review: 'The Claims administrator will next review your claim '
+        + 'submission to determine if your claim can be approved.',
+      patience: 'Thank you for your patience while we are busy processing your claim.',
+      claimAdmin: 'Claims Administrator',
+    },
+  },
+
 });
 
 i18n.map('fr', {

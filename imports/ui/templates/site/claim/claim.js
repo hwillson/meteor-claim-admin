@@ -4,7 +4,7 @@ import { $ } from 'meteor/jquery';
 import { i18n } from 'meteor/anti:i18n';
 import { FlowRouter } from 'meteor/kadira:flow-router';
 
-import createClaim from '/imports/api/claims/methods.js';
+import { createClaim } from '/imports/api/claims/methods.js';
 
 import './claim.html';
 import './steps/claim_steps.js';
@@ -52,7 +52,6 @@ Template.siteClaim.helpers({
           delete claimData.declaration3;
           createClaim.call(claimData, (error, newClaim) => {
             if (error) {
-console.log(error);
               this.done();
             } else {
               window.scrollTo(0, 0);

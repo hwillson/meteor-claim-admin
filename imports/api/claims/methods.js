@@ -6,7 +6,7 @@ import claims from './collection.js';
 import claimSchema from './schema.js';
 import claimStatusLookup from '/imports/utility/lookups/claim_status_lookup.js';
 import throwNotAuthorizedException from '/imports/utility/not_authorized.js';
-// import emailUtility from '/imports/utility/email.js';
+import emailUtility from '/imports/utility/email.js';
 
 const createClaim = new ValidatedMethod({
   name: 'claims.createClaim',
@@ -18,7 +18,7 @@ const createClaim = new ValidatedMethod({
       newClaim.referenceId = incrementCounter('counters', 'claimId');
       newClaim.status = claimStatusLookup.codes.received.id;
       const claimId = claims.insert(newClaim);
-      // Meteor.call('emailClaimReceipt', claimId);
+      emailUtility.emailClaimReceipt(claimId);
     }
     return newClaim;
   },
