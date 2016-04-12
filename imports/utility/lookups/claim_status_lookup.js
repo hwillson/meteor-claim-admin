@@ -36,6 +36,14 @@ const claimStatusLookup = {
     return labelValues;
   },
 
+  getLabel(id) {
+    let label;
+    if (id) {
+      label = this.codes[id].label;
+    }
+    return label;
+  },
+
 };
 
 export default claimStatusLookup;

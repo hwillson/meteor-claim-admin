@@ -3,6 +3,7 @@ import { Tabular } from 'meteor/aldeed:tabular';
 import claims from '/imports/api/claims/collection.js';
 import dateUtility from '/imports/utility/date.js';
 import { SubsManager } from 'meteor/meteorhacks:subs-manager';
+import claimStatusLookup from '/imports/utility/lookups/claim_status_lookup.js';
 
 const claimsTableConfig = new Tabular.Table({
   name: 'claimsTable',
@@ -14,7 +15,13 @@ const claimsTableConfig = new Tabular.Table({
     { data: 'lastName', title: 'Last Name' },
     { data: 'email', title: 'Email' },
     { data: 'phone', title: 'Phone' },
-    { data: 'status', title: 'Claim Status' },
+    {
+      data: 'status',
+      title: 'Claim Status',
+      render(statusId) {
+        return claimStatusLookup.getLabel(statusId);
+      },
+    },
     {
       data: 'dateCreated',
       title: 'Date Created',

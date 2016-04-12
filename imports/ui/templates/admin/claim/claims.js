@@ -31,8 +31,9 @@ Template.adminClaims.helpers({
 
   selector() {
     let statusFilter = {};
-    if (Session.get('adminSelectedClaimStatusValue') !== 'allClaims') {
-      statusFilter = { status: Session.get('adminSelectedClaimStatusLabel') };
+    const selectedStatus = Session.get('adminSelectedClaimStatus');
+    if (selectedStatus !== claimStatusLookup.codes.all.id) {
+      statusFilter = { status: selectedStatus };
     }
     return statusFilter;
   },
@@ -49,12 +50,7 @@ Template.adminClaims.events({
   },
 
   'change #claim-status'(event) {
-    const selectedStatusValue = event.target.value;
-    const selectedStatusLabel = $(event.currentTarget).find(
-      `option[value="${selectedStatusValue}"]`
-    ).html();
-    Session.set('adminSelectedClaimStatusValue', selectedStatusValue);
-    Session.set('adminSelectedClaimStatusLabel', selectedStatusLabel);
+    Session.set('adminSelectedClaimStatus', event.target.value);
   },
 
 });
