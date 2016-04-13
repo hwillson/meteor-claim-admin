@@ -1,5 +1,6 @@
 {
   "public": {
+    "logLevel": "debug",
     "maintenaceMode": false,
     "claimSubmissionsEnabled": true,
     "admin": {

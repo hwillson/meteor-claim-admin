@@ -65,6 +65,10 @@ Application settings are controlled via `./settings.json`. Details are explained
 {
   "public": {
 
+    // Control console logging levels
+    // (uses [loglevel](https://www.npmjs.com/package/loglevel))
+    "logLevel": "debug",
+
     // If `true` only logged in admins can see the public website.
     // Non-logged in admins will see a "down for maintenance" message.
     // This provides admins a way to test the system in production

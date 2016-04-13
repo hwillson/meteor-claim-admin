@@ -5,6 +5,7 @@
     "start": "meteor run"
   },
   "dependencies": {
+    "loglevel": "^1.4.0",
     "mailgun-js": "^0.7.7",
     "meteor-node-stubs": "~0.2.0",
     "sweetalert": "^1.1.3"

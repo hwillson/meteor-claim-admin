@@ -1,5 +1,3 @@
-/* eslint-disable no-console */
-
 import { json2csv } from 'meteor/axw:json2csv';
 import { FS } from 'meteor/cfs:base-package';
 import { moment } from 'meteor/momentjs:moment';
@@ -7,6 +5,7 @@ import { moment } from 'meteor/momentjs:moment';
 import claims from './collection.js';
 import dateUtility from '/imports/utility/date.js';
 import exportFiles from '../export_files/collection.js';
+import log from '/imports/utility/logger.js';
 
 const exportClaims = (() => {
   let _public = {};
@@ -46,11 +45,13 @@ const exportClaims = (() => {
       exportFiles.remove(fileFilter);
       const exportFile = new FS.File();
       exportFile.attachData(csvData, { type: 'text/csv' });
-      exportFile.name(
-        `${fileNamePrefix}_${moment().format('YYYY-MM-DD_HH-mm-ss')}.csv`
-      );
+      const fileName =
+        `${fileNamePrefix}_${moment().format('YYYY-MM-DD_HH-mm-ss')}.csv`;
+      log.debug(`CSV export filename: ${fileName}`);
+      exportFile.name(fileName);
       exportFiles.insert(exportFile);
 
+      log.debug(`${records.length} records generated during CSV export.`);
       return records.length;
     },
 

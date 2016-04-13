@@ -1,5 +1,4 @@
 import { Template } from 'meteor/templating';
-import { Meteor } from 'meteor/meteor';
 import { $ } from 'meteor/jquery';
 
 import './welcome.html';
