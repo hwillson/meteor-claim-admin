@@ -11,8 +11,9 @@ Meteor based (with Blaze) demo claim administration system, made up of the follo
 - When a claim is submitted the claimant receives a claim receipt email with all of their submitted details, along with an attached PDF based claim receipt (containing the same information).
 - The public claim system is i18n ready, and is currently wired up in both English/French (with site language toggle functionality).
 
-![Public site home](https://raw.githubusercontent.com/hwillson/meteor-claim-admin/m    aster/public/images/demo/public_home.png "Public site home")
-![Public site claim ](https://raw.githubusercontent.com/hwillson/meteor-claim-admin/m    aster/public/images/demo/public_claim.png "Public site claim")
+![Public site home](https://raw.githubusercontent.com/hwillson/meteor-claim-admin/master/public/images/demo/public_home.png "Public site home")
+
+![Public site claim ](https://raw.githubusercontent.com/hwillson/meteor-claim-admin/master/public/images/demo/public_claim.png "Public site claim")
 
 ### 2. Member Only Claim Admin System
 
@@ -22,10 +23,13 @@ Meteor based (with Blaze) demo claim administration system, made up of the follo
 - Public site documents can be uploaded and managed via the admin. These documents are then available on the public site for download, under the document section.
 - Admins can add/update/remove other admins, and control which groups they're part of. Right now the admin system just uses the `admin` group for admin access, but the functionality is in place to support other groups as needed.
 
-![Admin site claims list](https://raw.githubusercontent.com/hwillson/meteor-claim-admin/m    aster/public/images/demo/admin_claims.png "Admin site claims list")
-![Admin site manage claim ](https://raw.githubusercontent.com/hwillson/meteor-claim-admin/m    aster/public/images/demo/admin_claim.png "Admin site manage claim")
-![Admin site CMS content ](https://raw.githubusercontent.com/hwillson/meteor-claim-admin/m    aster/public/images/demo/admin_content.png "Admin site CMS content")
-![Admin site manage users ](https://raw.githubusercontent.com/hwillson/meteor-claim-admin/m    aster/public/images/demo/admin_users.png "Admin site manage users")
+![Admin site claims list](https://raw.githubusercontent.com/hwillson/meteor-claim-admin/master/public/images/demo/admin_claims.png "Admin site claims list")
+
+![Admin site manage claim ](https://raw.githubusercontent.com/hwillson/meteor-claim-admin/master/public/images/demo/admin_claim.png "Admin site manage claim")
+
+![Admin site CMS content ](https://raw.githubusercontent.com/hwillson/meteor-claim-admin/master/public/images/demo/admin_content.png "Admin site CMS content")
+
+![Admin site manage users ](https://raw.githubusercontent.com/hwillson/meteor-claim-admin/master/public/images/demo/admin_users.png "Admin site manage users")
 
 ## Background
 
