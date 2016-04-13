@@ -1,5 +1,6 @@
 {
   "public": {
+    "createSeedData": true,
     "logLevel": "debug",
     "maintenaceMode": false,
     "claimSubmissionsEnabled": true,
