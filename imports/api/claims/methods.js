@@ -3,7 +3,6 @@ import { incrementCounter } from 'meteor/osv:mongo-counter';
 
 import claimSubmissionSchema from '../claim_submission/schema.js';
 import claims from './collection.js';
-import claimSchema from './schema.js';
 import claimStatusLookup from '/imports/utility/lookups/claim_status_lookup.js';
 import throwNotAuthorizedException from '/imports/utility/not_authorized.js';
 import emailUtility from '/imports/utility/email.js';
@@ -27,7 +26,7 @@ const createClaim = new ValidatedMethod({
 const updateClaim = new ValidatedMethod({
   name: 'claims.updateClaim',
   validate(args) {
-    claimSchema.validate(args.modifier, { modifier: true });
+    claimSubmissionSchema.validate(args.modifier, { modifier: true });
   },
   run(args) {
     if (this.userId) {
