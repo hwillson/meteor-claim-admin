@@ -345,4 +345,28 @@ i18n.map('fr', {
 
   },
 
+  email: {
+    submitted: {
+      title: 'Réclamation soumise',
+      claimDetails: 'Les détails de réclamation',
+      claimId: 'Numéro de réclamation :',
+      claimDate: 'Date de la réclamation :',
+      pdfReceipt: 'reclamation.pdf',
+      thankYou: 'Nous vous remercions, {$1}, d’avoir soumis une réclamation.',
+      step1: '1. Réclamation soumise',
+      confirm: 'Ce courriel confirme que vous avez dûment complété le '
+        + 'processus de soumission.  Un sommaire de votre soumission est en '
+        + 'pièce jointe.',
+      step2: '2. Réclamation pas approuvée',
+      notYetApproved: 'Votre réclamation n’est pas encore approuvée.',
+      step3: '3. Étapes suivantes',
+      review: 'L’Administrateur des réclamations révisera votre réclamation '
+        + 'et toute preuve à l’appui soumise afin de déterminer si votre '
+        + 'réclamation est approuvée.',
+      patience: 'Nous vous remercions pour votre patience pendant que nous '
+        + 'traitons votre réclamation.',
+      claimAdmin: 'Administrateur des réclamations',
+    },
+  },
+
 });
