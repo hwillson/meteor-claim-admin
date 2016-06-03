@@ -1,4 +1,6 @@
 import { SimpleSchema } from 'meteor/aldeed:simple-schema';
+import { Tracker } from 'meteor/tracker';
+import { i18n } from 'meteor/anti:i18n';
 
 import claimStatusLookup from '../../utility/lookups/claim_status_lookup.js';
 
@@ -112,6 +114,31 @@ const claimSchema = new SimpleSchema({
     max: 7,
     regEx: /^[abceghjklmnprstvxyABCEGHJKLMNPRSTVXY]{1}\d{1}[a-zA-Z]{1} *\d{1}[a-zA-Z]{1}\d{1}$/,
   },
+});
+
+// Validation Messages
+Tracker.autorun(() => {
+  claimSchema.messages({
+    'required email': i18n('claim.contactInfo.emailRequired'),
+    'regEx email': [
+      { msg: i18n('claim.contactInfo.emailInvalid') },
+    ],
+    'required firstName': i18n('claim.contactInfo.firstNameRequired'),
+    'required middleName': i18n('claim.contactInfo.middleNameRequired'),
+    'required lastName': i18n('claim.contactInfo.lastNameRequired'),
+    'required phone': i18n('claim.contactInfo.phoneRequired'),
+    'minString phone': i18n('claim.contactInfo.phoneLength'),
+    'regEx phone': [
+      { msg: i18n('claim.contactInfo.phoneInvalid') },
+    ],
+    'required address.street1': i18n('claim.contactInfo.street1Required'),
+    'required address.city': i18n('claim.contactInfo.cityRequired'),
+    'required address.province': i18n('claim.contactInfo.provinceRequired'),
+    'required address.postalCode': i18n('claim.contactInfo.postalCodeRequired'),
+    'regEx address.postalCode': [
+      { msg: i18n('claim.contactInfo.postalCodeInvalid') },
+    ],
+  });
 });
 
 export default claimSchema;
