@@ -13,6 +13,7 @@ import '../../ui/templates/site/common/maintenance.html';
 import '../../ui/templates/site/page/page.js';
 import '../../ui/templates/site/claim/claim.js';
 import '../../ui/templates/site/claim/claim_submitted.js';
+import '../../ui/templates/site/documents/documents.js';
 
 import '../../ui/templates/admin/common/layout.js';
 import '../../ui/templates/admin/welcome/welcome.js';

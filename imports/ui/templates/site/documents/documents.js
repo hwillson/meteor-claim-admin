@@ -6,8 +6,8 @@ import siteDocuments from '../../../../api/site_documents/collection.js';
 import './documents.html';
 
 Template.siteDocuments.onCreated(function siteDocumentsOnCreated() {
-  this.subscribe('siteDocuments');
-  this.subscribe('siteFiles');
+  this.subscribe('siteDocuments.all');
+  this.subscribe('siteFiles.all');
 });
 
 const findDocuments = () => {
