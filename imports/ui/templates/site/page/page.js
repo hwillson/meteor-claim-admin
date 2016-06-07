@@ -2,7 +2,6 @@ import { Template } from 'meteor/templating';
 import { Session } from 'meteor/session';
 import { $ } from 'meteor/jquery';
 import { i18n } from 'meteor/anti:i18n';
-import { Meteor } from 'meteor/meteor';
 
 import pages from '../../../../api/pages/collection.js';
 
@@ -15,12 +14,9 @@ Template.sitePage.onCreated(function sitePageOnCreated() {
 Template.sitePage.onRendered(function sitePageOnRendered() {
   this.autorun(() => {
     if (Session.get('siteContentFocus')) {
-      Meteor.defer(() => {
+      setTimeout(() => {
         $(`.focus-${Session.get('siteContentFocus')}`).next().slideToggle();
-      });
-      // setTimeout(() => {
-      //   $(`.focus-${Session.get('siteContentFocus')}`).next().slideToggle();
-      // }, 500);
+      }, 1000);
     }
   });
 });
