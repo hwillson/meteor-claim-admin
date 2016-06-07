@@ -2,21 +2,24 @@ import { Template } from 'meteor/templating';
 import { Session } from 'meteor/session';
 import { $ } from 'meteor/jquery';
 import { i18n } from 'meteor/anti:i18n';
+import { ReactiveVar } from 'meteor/reactive-var';
 
 import pages from '../../../../api/pages/collection.js';
 
 import './page.html';
 
 Template.sitePage.onCreated(function sitePageOnCreated() {
-  this.subscribe('pages.all');
+  this.isContentReady = new ReactiveVar(false);
+  const handle = this.subscribe('pages.all');
+  this.autorun(() => {
+    this.isContentReady.set(handle.ready());
+  });
 });
 
 Template.sitePage.onRendered(function sitePageOnRendered() {
   this.autorun(() => {
-    if (Session.get('siteContentFocus')) {
-      setTimeout(() => {
-        $(`.focus-${Session.get('siteContentFocus')}`).next().slideToggle();
-      }, 1000);
+    if (Session.get('siteContentFocus') && this.isContentReady.get()) {
+      $(`.focus-${Session.get('siteContentFocus')}`).next().slideToggle();
     }
   });
 });
