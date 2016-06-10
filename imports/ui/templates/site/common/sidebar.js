@@ -6,7 +6,7 @@ import pages from '../../../../api/pages/collection.js';
 import './sidebar.html';
 
 Template.siteSidebar.onCreated(function siteSidebarOnCreated() {
-  this.subscribe('allPages');
+  this.subscribe('pages.all');
 });
 
 Template.siteSidebar.helpers({
