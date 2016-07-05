@@ -5,7 +5,7 @@ import mailgun from './mailgun.js';
 
 import claims from '/imports/api/claims/collection.js';
 import dateUtility from '/imports/utility/date.js';
-import claimStatusLookup from '/imports/utility/claim_status_lookup';
+import claimStatusLookup from '/imports/utility/lookups/claim_status_lookup';
 
 const emailUtility = (() => {
   let _private = {};
@@ -226,7 +226,20 @@ const emailUtility = (() => {
     },
 
     rejectedDuplicateEmailMessage(claim) {
-
+      let message;
+      if (claim) {
+        message =
+          i18n(
+            'email.decision.rejected.intro',
+            claim.referenceId,
+            claim.dateCreated,
+            claim.firstName,
+            claim.lastName
+          )
+          + i18n('email.decision.rejected.rejectedDuplicate')
+          + i18n('email.decision.rejected.outro');
+      }
+      return message;
     },
   };
 

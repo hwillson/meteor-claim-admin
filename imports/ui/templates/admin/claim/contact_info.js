@@ -4,7 +4,7 @@ import { $ } from 'meteor/jquery';
 import { AutoForm } from 'meteor/aldeed:autoform';
 
 import claims from '/imports/api/claims/collection.js';
-
+import './decision_email';
 import './contact_info.html';
 
 const lockForm = () => {

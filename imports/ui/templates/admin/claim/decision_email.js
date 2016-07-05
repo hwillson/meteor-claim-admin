@@ -1,4 +1,4 @@
-import { Template } from 'meteor/template';
+import { Template } from 'meteor/templating';
 import { $ } from 'meteor/jquery';
 import { sendDecisionEmail } from '../../../../api/decision_email/methods';
 import { createNote } from '../../../../api/claim_notes/methods';

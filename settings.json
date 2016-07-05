@@ -13,6 +13,7 @@
   },
   "private": {
     "initialAdminPass": "cQ5-j51-PJa-l8T",
+    "disableCron": true,
     "email": {
       "enabled": true,
       "info": "info@somesite.fake",

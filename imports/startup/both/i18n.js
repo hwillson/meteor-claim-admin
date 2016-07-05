@@ -181,7 +181,7 @@ i18n.map('en', {
       claimAdmin: 'Claims Administrator',
     },
     decision: {
-      rejectedDuplicate: {
+      rejected: {
         subject: 'Duplicate Claim Rejected',
         intro: '<strong>Claim ID: {$1}</strong><br/>'
           + 'Claim Date: {$2}<br/>'
@@ -392,6 +392,35 @@ i18n.map('fr', {
       patience: 'Nous vous remercions pour votre patience pendant que nous '
         + 'traitons votre réclamation.',
       claimAdmin: 'Administrateur des réclamations',
+    },
+    decision: {
+      rejected: {
+        subject: 'Réclamation rejetée duplicata',
+        intro: '<strong>No de réclamation : {$1}</strong><br/>'
+          + 'Date de réclamation : {$2}<br/>'
+          + '<p>Bonjour {$3} {$4},</p>'
+          + '<p>Suite à notre dernier courriel confirmant que vous aviez '
+          + 'dûment soumis une réclamation dans le cadre du règlement '
+          + 'concernant les phares automobiles de remplacement Sylvania, nous '
+          + 'devons vous aviser qu’après un examen minutieux de votre '
+          + 'réclamation ',
+        rejectedDuplicate: '<strong>votre réclamation doit être rejetée '
+          + 'puisqu’elle est un duplicata.</strong></p>'
+          + '<p>Puisque nos dossiers démontrent que <strong>vous avez soumis '
+          + 'plus d’une réclamation</strong> dans le cadre du règlement et que '
+          + 'chaque Membre du Groupe a le droit de <strong>soumettre '
+          + 'seulement un (1) Formulaire de Réclamation</strong>, la '
+          + 'réclamation notée ci-haut doit être rejetée.</p>'
+          + '<p>Vous pouvez demander le réexamen de cette réclamation au plus '
+          + 'tard dans les trente (30) jours après la date de ce courriel, en '
+          + 'communiquant avec l\'Administrateur des Réclamations sans frais '
+          + 'au 1-855-745-7374 du lundi au vendredi de 9h à 17h.</p>',
+        outro: '<p>Cordialement,<br/>'
+          + 'Administrateur des réclamations - Règlement concernant les '
+          + 'phares d’automobile Sylvania<br/>'
+          + '1-855-745-7374 <br/>'
+          + 'www.autolightclaims.ca',
+      },
     },
   },
 
