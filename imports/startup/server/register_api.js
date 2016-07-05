@@ -9,3 +9,4 @@ import '../../api/claim_notes/methods.js';
 import '../../api/claim_notes/server/publications.js';
 import '../../api/audit_logs/server/publications.js';
 import '../../api/export_files/server/publications.js';
+import '../../api/decision_email/methods.js';

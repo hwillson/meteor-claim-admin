@@ -180,6 +180,32 @@ i18n.map('en', {
       patience: 'Thank you for your patience while we are busy processing your claim.',
       claimAdmin: 'Claims Administrator',
     },
+    decision: {
+      rejectedDuplicate: {
+        subject: 'Duplicate Claim Rejected',
+        intro: '<strong>Claim ID: {$1}</strong><br/>'
+          + 'Claim Date: {$2}<br/>'
+          + '<p>Hello {$3} {$4},</p>'
+          + '<p>Further to our last email confirming that you successfully '
+          + 'filed a claim under the Sylvania Automotive Lighting Settlement, '
+          + 'we must advise that after a careful review of your claim '
+          + 'submission ',
+        rejectedDuplicate: '<strong>your claim must be rejected as it is a '
+          + 'duplicate claim.</strong></p>'
+          + '<p>Our records show that you have submitted more than one claim '
+          + 'under the Sylvania Automotive Lighting Settlement and as each '
+          + 'Class Member is entitled to submit only one (1) Claim Form, this '
+          + 'above noted claim must be rejected.</p>'
+          + '<p>You may seek reconsideration no later than thirty (30) days '
+          + 'from the date of this email, by contacting the Claims '
+          + 'Administrator toll free at 1-855-745-7374 Monday to Friday from '
+          + '9am to 5pm EST.</p>',
+        outro: '<p>Regards,<br/>'
+          + 'Claims Administrator - Sylvania Automotive Lighting Settlement<br/>'
+          + '1-855-745-7374 <br/>'
+          + 'www.autolightclaims.ca',
+      },
+    },
   },
 
 });

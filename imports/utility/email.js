@@ -5,6 +5,7 @@ import mailgun from './mailgun.js';
 
 import claims from '/imports/api/claims/collection.js';
 import dateUtility from '/imports/utility/date.js';
+import claimStatusLookup from '/imports/utility/claim_status_lookup';
 
 const emailUtility = (() => {
   let _private = {};
@@ -77,6 +78,42 @@ const emailUtility = (() => {
           content,
           attachments
         );
+      }
+    },
+
+    sendDecisionEmail(claimId) {
+      if (claimId) {
+        const claim = claims.findOne({ _id: claimId });
+        if (claim) {
+          i18n.setLanguage(claim.language);
+          const subject = i18n(`email.decision.${claim.status}.subject`);
+          let message;
+          if (claim.status === claimStatusLookup.codes.rejectedDuplicate.id) {
+            message = _private.rejectedDuplicateEmailMessage(claim);
+          }
+
+          if (message) {
+            const infoEmail = Meteor.settings.private.email.info;
+            const claimSubmissionEmail =
+              Meteor.settings.private.email.claimsubmission;
+
+            // Send claimant decision email
+            _public.sendEmail(
+              claim.email,
+              infoEmail,
+              subject,
+              message
+            );
+
+            // Send admin decision email
+            _public.sendEmail(
+              claim.email,
+              claimSubmissionEmail,
+              subject,
+              message
+            );
+          }
+        }
       }
     },
 
@@ -186,6 +223,10 @@ const emailUtility = (() => {
       }
 
       return attachment;
+    },
+
+    rejectedDuplicateEmailMessage(claim) {
+
     },
   };
 

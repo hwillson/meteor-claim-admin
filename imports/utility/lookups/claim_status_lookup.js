@@ -21,6 +21,10 @@ const claimStatusLookup = {
       id: 'rejected',
       label: 'Rejected',
     },
+    rejectedDuplicate: {
+      id: 'rejectedDuplicate',
+      label: 'Rejected - Duplicate',
+    },
   },
 
   labelValues() {

@@ -51,6 +51,14 @@ Template.adminClaimContactInfo.helpers({
     return type;
   },
 
+  showDecisionEmail() {
+    let showDecisionEmail = false;
+    if (this.status.indexOf('rejected') === 0) {
+      showDecisionEmail = true;
+    }
+    return showDecisionEmail;
+  },
+
 });
 
 Template.adminClaimContactInfo.events({
