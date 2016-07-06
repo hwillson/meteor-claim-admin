@@ -192,9 +192,10 @@ i18n.map('en', {
           + 'submission ',
         rejectedDuplicate: '<strong>your claim must be rejected as it is a '
           + 'duplicate claim.</strong></p>'
-          + '<p>Our records show that you have submitted more than one claim '
-          + 'under the Sylvania Automotive Lighting Settlement and as each '
-          + 'Class Member is entitled to submit only one (1) Claim Form, this '
+          + '<p>Our records show that <strong>you have submitted more than '
+          + 'one claim</strong> under the Sylvania Automotive Lighting '
+          + 'Settlement and as each Class Member is entitled to <strong>submit '
+          + 'only one (1) Claim Form</strong>, this '
           + 'above noted claim must be rejected.</p>'
           + '<p>You may seek reconsideration no later than thirty (30) days '
           + 'from the date of this email, by contacting the Claims '
