@@ -230,14 +230,14 @@ const emailUtility = (() => {
       if (claim) {
         message =
           i18n(
-            'email.decision.rejected.intro',
+            'email.decision.rejectedDuplicate.intro',
             claim.referenceId,
             claim.dateCreated,
             claim.firstName,
             claim.lastName
           )
-          + i18n('email.decision.rejected.rejectedDuplicate')
-          + i18n('email.decision.rejected.outro');
+          + i18n('email.decision.rejectedDuplicate.rejectedDuplicate')
+          + i18n('email.decision.rejectedDuplicate.outro');
       }
       return message;
     },

@@ -394,7 +394,7 @@ i18n.map('fr', {
       claimAdmin: 'Administrateur des réclamations',
     },
     decision: {
-      rejected: {
+      rejectedDuplicate: {
         subject: 'Réclamation rejetée duplicata',
         intro: '<strong>No de réclamation : {$1}</strong><br/>'
           + 'Date de réclamation : {$2}<br/>'
