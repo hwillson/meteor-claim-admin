@@ -181,7 +181,7 @@ i18n.map('en', {
       claimAdmin: 'Claims Administrator',
     },
     decision: {
-      rejected: {
+      rejectedDuplicate: {
         subject: 'Duplicate Claim Rejected',
         intro: '<strong>Claim ID: {$1}</strong><br/>'
           + 'Claim Date: {$2}<br/>'
