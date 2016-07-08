@@ -1,3 +1,4 @@
+import '../both/accounts.js';
 import '../both/i18n.js';
 import './create_admin.js';
 import './create_seed_data.js';
