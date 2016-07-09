@@ -37,20 +37,21 @@ const exportClaims = (() => {
 
       const csv = json2csv(records, true, true);
       const csvData = new Buffer(csv);
-      const fileFilter = {
-        'original.name': {
-          $regex: `${fileNamePrefix}.*`,
-        },
-      };
-      exportFiles.remove(fileFilter);
       const exportFile = new FS.File();
       exportFile.attachData(csvData, { type: 'text/csv' });
       const fileName =
         `${fileNamePrefix}_${moment().format('YYYY-MM-DD_HH-mm-ss')}.csv`;
       log.debug(`CSV export filename: ${fileName}`);
       exportFile.name(fileName);
-      exportFiles.insert(exportFile);
-
+      exportFiles.insert(exportFile, (error) => {
+        if (!error) {
+          exportFiles.remove({
+            'original.name': {
+              $ne: fileName,
+            },
+          });
+        }
+      });
       log.debug(`${records.length} records generated during CSV export.`);
       return records.length;
     },

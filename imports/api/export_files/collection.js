@@ -6,6 +6,13 @@ const exportFiles = new FS.Collection('export_files', {
   stores: [new FS.Store.GridFS('export_files')],
 });
 
+Security.permit([
+  'insert',
+  'update',
+  'remove',
+]).collections([
+  exportFiles,
+]).ifLoggedIn().apply();
 Security.permit(['download']).collections([exportFiles]).apply();
 
 export default exportFiles;
