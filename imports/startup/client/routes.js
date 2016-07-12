@@ -44,7 +44,7 @@ const setLanguage = function setLanguage(context) {
 };
 
 const maintenaceModeCheck = function maintenaceModeCheck(context, redirect) {
-  if (Meteor.settings.public.maintenaceMode && !Meteor.userId()) {
+  if (Meteor.settings.public.maintenanceMode && !Meteor.userId()) {
     redirect('/maintenance');
   }
 };
