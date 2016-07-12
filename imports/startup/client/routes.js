@@ -67,7 +67,7 @@ FlowRouter.route('/', {
 FlowRouter.route('/maintenance', {
   name: 'siteMaintenance',
   action() {
-    if (Meteor.settings.public.maintenaceMode) {
+    if (Meteor.settings.public.maintenanceMode) {
       BlazeLayout.render('siteLayoutEmpty', { main: 'siteMaintenance' });
     } else {
       FlowRouter.go('/');
