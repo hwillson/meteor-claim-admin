@@ -5,6 +5,7 @@
     "start": "meteor run --settings=settings.json"
   },
   "dependencies": {
+    "bcrypt": "^0.8.7",
     "loglevel": "^1.4.0",
     "mailgun-js": "^0.7.7",
     "meteor-node-stubs": "~0.2.0",
