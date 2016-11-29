@@ -13,7 +13,8 @@ const emailUtility = (() => {
   const _public = {
 
     sendEmail(to, from, subject, message, attachment) {
-      if (Meteor.settings.private.email.enabled) {
+      if (Meteor.settings.private.email.enabled
+          && Meteor.settings.private.email.mailgun.apiKey) {
         if (to && from && subject && message) {
           const loadedMailgun = mailgun();
           const email = { to, from, subject, html: message };

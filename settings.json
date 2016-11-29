@@ -1,8 +1,8 @@
 {
   "public": {
-    "createSeedData": false,
     "logLevel": "debug",
     "maintenanceMode": false,
+    "publicSiteEnabled": true,
     "claimSubmissionsEnabled": true,
     "admin": {
       "initialAdminEmail": "jsmith@somesite.fake",
@@ -12,6 +12,7 @@
     }
   },
   "private": {
+    "createSeedData": false,
     "initialAdminPass": "cQ5-j51-PJa-l8T",
     "disableCron": true,
     "email": {

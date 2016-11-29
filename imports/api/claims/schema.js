@@ -3,6 +3,7 @@ import { Tracker } from 'meteor/tracker';
 import { i18n } from 'meteor/anti:i18n';
 
 import claimStatusLookup from '../../utility/lookups/claim_status_lookup.js';
+import languageLookup from '../../utility/lookups/language_lookup.js';
 
 const claimSchema = new SimpleSchema({
   referenceId: {
@@ -66,10 +67,20 @@ const claimSchema = new SimpleSchema({
   },
   language: {
     type: String,
-    optional: true,
+    label: 'Preferred Language',
     autoform: {
-      afFieldInput: {
-        type: 'hidden',
+      type: 'select',
+      options() {
+        return [
+          {
+            label: languageLookup.english.label,
+            value: languageLookup.english.value,
+          },
+          {
+            label: languageLookup.french.label,
+            value: languageLookup.french.value,
+          },
+        ];
       },
     },
   },

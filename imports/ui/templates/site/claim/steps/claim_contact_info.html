@@ -10,7 +10,7 @@
 
     {{#autoForm id="claim-contact-info" schema=schema doc=this.step.data}}
 
-      {{> afFieldInput name="language" value=currentLanguage}}
+      {{> afFieldInput name="language" value=currentLanguage class="hidden"}}
 
       <div class="required {{#if afFieldIsInvalid name='email'}}has-error{{/if}}">
         <label class="control-label">{{i18n "claim.contactInfo.email"}}</label>

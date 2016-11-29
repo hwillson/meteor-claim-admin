@@ -1,73 +1,76 @@
 <template name="adminClaimContactInfo">
   <div class="claim-contact-info u-mb-10">
-
     <div class="row">
       <div class="col-md-12">
         <h2>Claim Details</h2>
       </div>
     </div>
 
-    {{#if Template.subscriptionsReady}}
-      {{#if claimExists}}
-
-        {{#with claim}}
-
-          <div class="row">
-            <div class="col-md-12">
-              <p><strong>Claim ID:</strong> {{referenceId}}</p>
-              <p><strong>Preferred Language:</strong> {{language}}</p>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-md-6">
-              {{#autoForm id="claim-form" collection=collection doc=this
-                  type=formType meteormethod="claims.updateClaim"
-                  singleMethodArgument=true}}
-
-                {{> afQuickField name="status"}}
-
-                {{#if showDecisionEmail}}
-                  {{> adminClaimDecisionEmail}}
-                {{/if}}
-
-                {{> afQuickField name="didPurchase"}}
-                {{> afQuickField name="audited"}}
-
-                {{> afQuickField name="email"}}
-                {{> afQuickField name="firstName"}}
-                {{> afQuickField name="middleName"}}
-                {{> afQuickField name="lastName"}}
-
-                {{> afQuickField name="phone"}}
-                {{> afQuickField name="address"}}
-
-                <div class="claim-button-row text-right">
-                  <button type="reset"
-                      class="btn btn-link btn-cancel-contact-info btn-unlocked">
-                    Cancel
-                  </button>
-                  <button type="submit"
-                      class="btn btn-primary btn-save-contact-info btn-unlocked">
-                    Save
-                  </button>
-                  <button type="button"
-                      class="btn btn-primary btn-edit-contact-info btn-locked">
-                    Edit
-                  </button>
-                </div>
-
-              {{/autoForm}}
-            </div>
-          </div>
-        {{/with}}
-
-      {{else}}
-        Claim does not exist.
-      {{/if}}
+    {{#if newClaim}}
+      {{> adminClaimContactForm}}
     {{else}}
-      Loading ...
+      {{#if Template.subscriptionsReady}}
+        {{#if claimExists}}
+          {{#with claim}}
+            <div class="row">
+              <div class="col-md-12">
+                <p><strong>Claim ID:</strong> {{referenceId}}</p>
+              </div>
+            </div>
+            {{> adminClaimContactForm}}
+          {{/with}}
+        {{else}}
+          Claim does not exist.
+        {{/if}}
+      {{else}}
+        Loading ...
+      {{/if}}
     {{/if}}
+  </div>
+</template>
 
+<template name="adminClaimContactForm">
+  <div class="row">
+    <div class="col-md-6">
+      {{#autoForm id="claim-form" collection=collection doc=this
+          type=formType meteormethod=method
+          singleMethodArgument=singleMethodArgument}}
+
+        {{> afQuickField name="status"}}
+
+        {{#if showDecisionEmail}}
+          {{> adminClaimDecisionEmail}}
+        {{/if}}
+
+        {{> afQuickField name="didPurchase"}}
+        {{> afQuickField name="audited"}}
+
+        {{> afQuickField name="language"}}
+
+        {{> afQuickField name="email"}}
+        {{> afQuickField name="firstName"}}
+        {{> afQuickField name="middleName"}}
+        {{> afQuickField name="lastName"}}
+
+        {{> afQuickField name="phone"}}
+        {{> afQuickField name="address"}}
+
+        <div class="claim-button-row text-right">
+          <button type="reset"
+              class="btn btn-link btn-cancel-contact-info btn-unlocked">
+            Cancel
+          </button>
+          <button type="submit"
+              class="btn btn-primary btn-save-contact-info btn-unlocked">
+            Save
+          </button>
+          <button type="button"
+              class="btn btn-primary btn-edit-contact-info btn-locked">
+            Edit
+          </button>
+        </div>
+
+      {{/autoForm}}
+    </div>
   </div>
 </template>

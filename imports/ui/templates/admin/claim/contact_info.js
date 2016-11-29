@@ -1,16 +1,25 @@
 import { Template } from 'meteor/templating';
 import { Session } from 'meteor/session';
 import { $ } from 'meteor/jquery';
+import { _ } from 'meteor/underscore';
 import { AutoForm } from 'meteor/aldeed:autoform';
+import { FlowRouter } from 'meteor/kadira:flow-router';
 
-import claims from '/imports/api/claims/collection.js';
+import claims from '../../../../api/claims/collection';
 import './decision_email';
 import './contact_info.html';
 
+const isNewClaim = () => _.isEmpty(Session.get('currentClaimId'));
+
 const lockForm = () => {
-  $('.btn-unlocked').hide();
-  $('.btn-locked').show();
-  Session.set('isClaimFormLocked', true);
+  if (isNewClaim()) {
+    $('.btn-unlocked').show();
+    $('.btn-locked, .btn-cancel-contact-info').hide();
+  } else {
+    $('.btn-unlocked').hide();
+    $('.btn-locked').show();
+    Session.set('isClaimFormLocked', true);
+  }
 };
 
 const unlockForm = () => {
@@ -21,18 +30,16 @@ const unlockForm = () => {
 
 Template.adminClaimContactInfo.onCreated(
   function adminClaimContactInfoOnCreated() {
-    this.subscribe('claims.single', Session.get('currentClaimId'));
+    const currentClaimId = Session.get('currentClaimId');
+    if (currentClaimId) {
+      this.subscribe('claims.single', currentClaimId);
+    }
   }
 );
 
-Template.adminClaimContactInfo.onRendered(() => {
-  lockForm();
-});
-
 Template.adminClaimContactInfo.helpers({
-
-  collection() {
-    return claims;
+  newClaim() {
+    return isNewClaim();
   },
 
   claimExists() {
@@ -41,14 +48,6 @@ Template.adminClaimContactInfo.helpers({
 
   claim() {
     return claims.findOne();
-  },
-
-  formType() {
-    let type = 'disabled';
-    if (!Session.get('isClaimFormLocked')) {
-      type = 'method-update';
-    }
-    return type;
   },
 
   showDecisionEmail() {
@@ -61,8 +60,43 @@ Template.adminClaimContactInfo.helpers({
 
 });
 
-Template.adminClaimContactInfo.events({
+Template.adminClaimContactForm.onRendered(() => {
+  lockForm();
+});
 
+Template.adminClaimContactForm.helpers({
+  collection() {
+    return claims;
+  },
+
+  formType() {
+    let type;
+    if (Session.get('isClaimFormLocked')) {
+      type = 'disabled';
+    } else if (isNewClaim()) {
+      type = 'method';
+    } else {
+      type = 'method-update';
+    }
+    return type;
+  },
+
+  method() {
+    let method;
+    if (isNewClaim()) {
+      method = 'claims.createClaimNoReceipt';
+    } else {
+      method = 'claims.updateClaim';
+    }
+    return method;
+  },
+
+  singleMethodArgument() {
+    return !isNewClaim();
+  },
+});
+
+Template.adminClaimContactForm.events({
   'click .btn-edit-contact-info'() {
     unlockForm();
     $('#claim-form').on('reset', () => {
@@ -71,27 +105,17 @@ Template.adminClaimContactInfo.events({
       });
     });
   },
-
-  'click .claim-radio-reset'(event) {
-    event.preventDefault();
-    const schemaKey =
-      $(event.currentTarget).next('.af-radio-group').data('schema-key');
-    $(`input[name="${schemaKey}"]`).prop('checked', false);
-    const set = {};
-    set[schemaKey] = null;
-    claims.update({
-      _id: Session.get('currentClaimId'),
-    }, {
-      $set: set,
-    });
-  },
-
 });
 
 AutoForm.hooks({
-  claimForm: {
-    onSuccess() {
-      lockForm();
+  'claim-form': {
+    onSuccess(formType, claimId) {
+      if (formType === 'method') {
+        Session.set('currentClaimId', claimId);
+        FlowRouter.go(`/admin/claims/${claimId}`);
+      } else {
+        lockForm();
+      }
     },
   },
 });

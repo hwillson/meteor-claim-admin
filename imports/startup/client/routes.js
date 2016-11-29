@@ -10,6 +10,7 @@ import languageLookup from '../../utility/lookups/language_lookup.js';
 import '../../ui/templates/site/common/layout.js';
 import '../../ui/templates/site/common/layout_empty.js';
 import '../../ui/templates/site/common/maintenance.html';
+import '../../ui/templates/site/common/disabled.html';
 import '../../ui/templates/site/page/page.js';
 import '../../ui/templates/site/claim/claim.js';
 import '../../ui/templates/site/claim/claim_submitted.js';
@@ -23,6 +24,7 @@ import '../../ui/templates/admin/page/edit_page.js';
 import '../../ui/templates/admin/documents/documents.js';
 import '../../ui/templates/admin/claim/claims.js';
 import '../../ui/templates/admin/claim/claim.js';
+import '../../ui/templates/admin/claim/new_claim.js';
 import '../../ui/templates/admin/reports/reports.js';
 
 const toggleSiteClass = function toggleSiteClass() {
@@ -54,12 +56,16 @@ const maintenaceModeCheck = function maintenaceModeCheck(context, redirect) {
 FlowRouter.route('/', {
   triggersEnter: [toggleSiteClass, setLanguage, maintenaceModeCheck],
   action() {
-    if (i18n.getLanguage() === languageLookup.english.value) {
-      Session.set('slug', 'home');
-      FlowRouter.go('/site/home');
+    if (Meteor.settings.public.publicSiteEnabled) {
+      if (i18n.getLanguage() === languageLookup.english.value) {
+        Session.set('slug', 'home');
+        FlowRouter.go('/site/home');
+      } else {
+        Session.set('slug', 'accueil');
+        FlowRouter.go('/site/accueil');
+      }
     } else {
-      Session.set('slug', 'accueil');
-      FlowRouter.go('/site/accueil');
+      BlazeLayout.render('siteLayoutEmpty', { main: 'siteDisabled' });
     }
   },
 });
@@ -79,20 +85,24 @@ FlowRouter.route('/site/:slug', {
   name: 'sitePage',
   triggersEnter: [toggleSiteClass, setLanguage, maintenaceModeCheck],
   action(params, queryParams) {
-    let slug = 'home';
-    if (params && params.slug) {
-      slug = params.slug;
-    }
-    Session.set('slug', slug);
-    if (queryParams && queryParams.focus) {
-      Session.set('siteContentFocus', queryParams.focus);
+    if (Meteor.settings.public.publicSiteEnabled) {
+      let slug = 'home';
+      if (params && params.slug) {
+        slug = params.slug;
+      }
+      Session.set('slug', slug);
+      if (queryParams && queryParams.focus) {
+        Session.set('siteContentFocus', queryParams.focus);
+      } else {
+        Session.set('siteContentFocus', null);
+      }
+      if (slug === 'documents') {
+        BlazeLayout.render('siteLayout', { main: 'siteDocuments' });
+      } else {
+        BlazeLayout.render('siteLayout', { main: 'sitePage' });
+      }
     } else {
-      Session.set('siteContentFocus', null);
-    }
-    if (slug === 'documents') {
-      BlazeLayout.render('siteLayout', { main: 'siteDocuments' });
-    } else {
-      BlazeLayout.render('siteLayout', { main: 'sitePage' });
+      BlazeLayout.render('siteLayoutEmpty', { main: 'siteDisabled' });
     }
   },
 });
@@ -177,6 +187,14 @@ FlowRouter.route('/admin/documents', {
   triggersEnter: [toggleAdminClass, ensureAdminLoggedIn],
   action() {
     BlazeLayout.render('adminLayout', { main: 'adminDocuments' });
+  },
+});
+
+FlowRouter.route('/admin/new-claim', {
+  name: 'adminNewClaim',
+  triggersEnter: [toggleAdminClass, ensureAdminLoggedIn],
+  action() {
+    BlazeLayout.render('adminLayout', { main: 'adminNewClaim' });
   },
 });
 

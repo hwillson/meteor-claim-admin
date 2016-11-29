@@ -19,10 +19,15 @@
               <i class="fa fa-angle-left pull-right"></i>
             </a>
             <ul class="treeview-menu">
+              <li class="{{isActiveRoute 'adminNewClaim'}}">
+                <a href="{{pathFor 'adminNewClaim'}}">
+                  <i class="fa fa-plus-circle"></i> New Claim
+                </a>
+              </li>
               <li class="{{isActiveRoute 'adminClaims'}}
                   {{isActiveRoute 'adminClaim'}}">
                 <a href="{{pathFor 'adminClaims'}}">
-                  <i class="fa fa-legal"></i> Claims
+                  <i class="fa fa-legal"></i> List Claims
                 </a>
               </li>
               <li class="{{isActiveRoute 'adminReports'}}">

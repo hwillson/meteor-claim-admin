@@ -3,7 +3,7 @@ import { Session } from 'meteor/session';
 import { Meteor } from 'meteor/meteor';
 import { _ } from 'meteor/underscore';
 
-import auditLogs from '/imports/api/audit_logs/collection.js';
+import auditLogs from '../../../../api/audit_logs/collection.js';
 
 import './audit.html';
 

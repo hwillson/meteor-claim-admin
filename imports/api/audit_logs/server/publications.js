@@ -10,7 +10,10 @@ Meteor.publish(
     let cursor;
     if (this.userId) {
       cursor = auditLogs.find({
-        documentId: claimId,
+        $or: [
+          { documentId: claimId },
+          { 'documentId.insertedIds.0': claimId },
+        ],
       });
     } else {
       cursor = this.ready();

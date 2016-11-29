@@ -1,5 +1,5 @@
 import { Meteor } from 'meteor/meteor';
-import pages from '/imports/api/pages/collection.js';
+import pages from '../../api/pages/collection.js';
 import languageLookup from '../../utility/lookups/language_lookup.js';
 import pageStatusLookup from '../../utility/lookups/page_status_lookup.js';
 
@@ -11,7 +11,7 @@ function addPage(page) {
   }
 }
 
-if (Meteor.settings.public.createSeedData) {
+if (Meteor.settings.private.createSeedData) {
   addPage({
     title: 'Home',
     content: 'Home content!',
